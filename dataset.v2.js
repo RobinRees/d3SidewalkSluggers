@@ -88,138 +88,228 @@ const disciplines = [{
 
 const participants = [{
   "id": 148,
-  "name": "P171"
+  "name": "P171",
+  "displayName": "Adon",
+  "profilePicture": "/Images/characterProfile/Adon.png",
+  "fullImage": "/Images/FullCharacter/AdonFull.png"
 }, {
   "id": 65,
-  "name": "P030"
+  "name": "P030",
+  "displayName": "Akuma",
+  "profilePicture": "/Images/characterProfile/Akuma.png",
+  "fullImage": "/Images/FullCharacter/AkumaFull.png"
 }, {
   "id": 189,
-  "name": "P060"
+  "name": "P060",
+  "displayName": "Balrog",
+  "profilePicture": "/Images/characterProfile/Balrog.png",
+  "fullImage": "/Images/FullCharacter/BalrogFull.png"
 }, {
   "id": 268,
-  "name": "P106"
+  "name": "P106",
+  "displayName": "Blanka",
+  "profilePicture": "/Images/characterProfile/Blanka.png"
 }, {
   "id": 180,
-  "name": "P212"
+  "name": "P212",
+  "displayName": "Cammy",
+  "profilePicture": "/Images/characterProfile/Cammy.png"
 }, {
   "id": 296,
-  "name": "P190"
+  "name": "P190",
+  "displayName": "Charlie Nash",
+  "profilePicture": "/Images/characterProfile/CharlieNash.png"
 }, {
   "id": 141,
-  "name": "P181"
+  "name": "P181",
+  "displayName": "Chun-li",
+  "profilePicture": "/Images/characterProfile/Chun-li.png"
 }, {
   "id": 179,
-  "name": "P154"
+  "name": "P154",
+  "displayName": "Cody",
+  "profilePicture": "/Images/characterProfile/Cody.png"
 }, {
   "id": 76,
-  "name": "P055"
+  "name": "P055",
+  "displayName": "Dan",
+  "profilePicture": "/Images/characterProfile/Dan.png"
 }, {
   "id": 173,
-  "name": "P215"
+  "name": "P215",
+  "displayName": "Dee Jay",
+  "profilePicture": "/Images/characterProfile/DeeJay.png"
 }, {
   "id": 214,
-  "name": "P252"
+  "name": "P252",
+  "displayName": "Dhalsim",
+  "profilePicture": "/Images/characterProfile/Dhalsim.png"
 }, {
   "id": 169,
-  "name": "P016"
+  "name": "P016",
+  "displayName": "Dudley",
+  "profilePicture": "/Images/characterProfile/Dudley.png"
 }, {
   "id": 269,
-  "name": "P247"
+  "name": "P247",
+  "displayName": "E. Honda",
+  "profilePicture": "/Images/characterProfile/Ehonda.png"
 }, {
   "id": 122,
-  "name": "P240"
+  "name": "P240",
+  "displayName": "Ellena",
+  "profilePicture": "/Images/characterProfile/Ellena.png"
 }, {
   "id": 58,
-  "name": "P175"
+  "name": "P175",
+  "displayName": "Fei-long",
+  "profilePicture": "/Images/characterProfile/Fei-long.png"
 }, {
   "id": 270,
-  "name": "P176"
+  "name": "P176",
+  "displayName": "Gen",
+  "profilePicture": "/Images/characterProfile/Gen.png"
 }, {
   "id": 206,
-  "name": "P255"
+  "name": "P255",
+  "displayName": "Gill",
+  "profilePicture": "/Images/characterProfile/Gill.png"
 }, {
   "id": 150,
-  "name": "P172"
+  "name": "P172",
+  "displayName": "Gouki",
+  "profilePicture": "/Images/characterProfile/Gouki.png"
 }, {
   "id": 190,
-  "name": "P300"
+  "name": "P300",
+  "displayName": "Guile",
+  "profilePicture": "/Images/characterProfile/Guile.png"
 }, {
   "id": 68,
-  "name": "P029"
+  "name": "P029",
+  "displayName": "Guy",
+  "profilePicture": "/Images/characterProfile/Guy.png"
 }, {
   "id": 82,
-  "name": "P057"
+  "name": "P057",
+  "displayName": "Hugo",
+  "profilePicture": "/Images/characterProfile/Hugo.png"
 }, {
   "id": 156,
-  "name": "P001"
+  "name": "P001",
+  "displayName": "Ibuki",
+  "profilePicture": "/Images/characterProfile/Ibuki.png"
 }, {
   "id": 159,
-  "name": "P078"
+  "name": "P078",
+  "displayName": "Juri",
+  "profilePicture": "/Images/characterProfile/Juri.png"
 }, {
   "id": 201,
-  "name": "P056"
+  "name": "P056",
+  "displayName": "Ken",
+  "profilePicture": "/Images/characterProfile/Ken.png"
 }, {
   "id": 124,
-  "name": "P144"
+  "name": "P144",
+  "displayName": "Makoto",
+  "profilePicture": "/Images/characterProfile/Makoto.png"
 }, {
   "id": 149,
-  "name": "P107"
+  "name": "P107",
+  "displayName": "M. Bison",
+  "profilePicture": "/Images/characterProfile/Mbison.png"
 }, {
   "id": 235,
-  "name": "P043"
+  "name": "P043",
+  "displayName": "Menat",
+  "profilePicture": "/Images/characterProfile/Menat.png"
 }, {
   "id": 170,
-  "name": "P124"
+  "name": "P124",
+  "displayName": "Oro",
+  "profilePicture": "/Images/characterProfile/Oro.png"
 }, {
   "id": 11,
-  "name": "P258"
+  "name": "P258",
+  "displayName": "Poison",
+  "profilePicture": "/Images/characterProfile/Poison.png"
 }, {
   "id": 19,
-  "name": "P274"
+  "name": "P274",
+  "displayName": "Remy",
+  "profilePicture": "/Images/characterProfile/Remy.png"
 }, {
   "id": 290,
-  "name": "P237"
+  "name": "P237",
+  "displayName": "Rose",
+  "profilePicture": "/Images/characterProfile/Rose.png"
 }, {
   "id": 181,
-  "name": "P201"
+  "name": "P201",
+  "displayName": "Ryu",
+  "profilePicture": "/Images/characterProfile/Ryu.png"
 }, {
   "id": 12,
-  "name": "P170"
+  "name": "P170",
+  "displayName": "Sagat",
+  "profilePicture": "/Images/characterProfile/Sagat.png"
 }, {
   "id": 195,
-  "name": "P285"
+  "name": "P285",
+  "displayName": "Sakura",
+  "profilePicture": "/Images/characterProfile/Sakura.png"
 }, {
   "id": 182,
-  "name": "P079"
+  "name": "P079",
+  "displayName": "Sean",
+  "profilePicture": "/Images/characterProfile/Sean.png"
 }, {
   "id": 6,
-  "name": "P123"
+  "name": "P123",
+  "displayName": "Thawk",
+  "profilePicture": "/Images/characterProfile/Thawk.png"
 }, {
   "id": 239,
-  "name": "P189"
+  "name": "P189",
+  "displayName": "Urien",
+  "profilePicture": "/Images/characterProfile/Urien.png"
 }, {
   "id": 125,
-  "name": "P010"
+  "name": "P010",
+  "displayName": "Vega",
+  "profilePicture": "/Images/characterProfile/Vega.png"
 }, {
   "id": 140,
-  "name": "P213"
+  "name": "P213",
+  "displayName": "Zangief",
+  "profilePicture": "/Images/characterProfile/Zangief.png"
 }, {
   "id": 81,
-  "name": "P095"
+  "name": "P095",
+  "displayName": "",
+  "profilePicture": ""
 }, {
   "id": 160,
-  "name": "P047"
+  "name": "P047",
+  "displayName": "",
+  "profilePicture": ""
 }, {
   "id": 192,
-  "name": "P033"
+  "name": "P033",
+  "displayName": "",
+  "profilePicture": ""
 }, {
   "id": 274,
-  "name": "P063"
+  "name": "P063",
+  "displayName": "",
+  "profilePicture": ""
 }, {
   "id": 119,
-  "name": "P254"
-}]
-
+  "name": "P254",
+  "displayName": "",
+  "profilePicture": ""
+}];
 const coaches = [{
   "id": 1,
   "name": "C01",

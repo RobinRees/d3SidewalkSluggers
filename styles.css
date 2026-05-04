@@ -1,0 +1,125 @@
+/* Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    background: bisque;
+}
+
+main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 10fr 9fr 10fr;
+    background: purple;
+    min-height: 0;
+}
+
+/* Navbar */
+#navBar {
+    display: flex;
+    justify-content: center;
+    gap: 1vh;
+    padding: 5px;
+    margin-top: 70px;
+    background: lightblue;
+}
+
+#navBar div {
+    padding: 10px;
+    background: gray;
+    border: 1px solid blue;
+}
+
+#navBar div:hover {
+    background: black;
+    color: white;
+}
+
+/* Main paneler */
+main > div {
+    border: 1px solid black;
+}
+
+main > div:nth-child(2) {
+    background: lightblue;
+}
+
+main > div:nth-child(3) {
+    background: rgb(81, 81, 187);
+}
+
+/* Player One */
+#playerOne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Character preview P1 */
+#characterFullP1 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-right: 2px solid black;
+}
+
+.previewWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.previewWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+/* Hur namnet visas under character */
+.previewName {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+
+    text-align: center;
+    font: 900 5vw Impact, Arial Black, sans-serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: gold;
+    text-shadow:
+        3px 3px 0 black,
+        6px 6px 10px rgba(0,0,0,0.8);
+}
+
+/* Character grid */
+#characterSelect {
+    display: grid;
+    grid-template-columns: repeat(22, 1fr);
+    gap: 1px;
+    background: aquamarine;
+}
+
+.characterCell {
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: black;
+}
+
+.characterCell:hover {
+    outline: 3px solid blue;
+}
+
+.characterCell img {
+    width: 160%;
+    height: 160%;
+    object-fit: cover;
+}
