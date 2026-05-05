@@ -69,8 +69,8 @@ function renderRandomPlayerTwo () {
   const playerTwo = document.getElementById("characterFullP2");
   playerTwo.innerHTML = `
                           <div class="previewWrapperTwo">
-                                <img src="${participants[1].fullImage}">
-                                <div class="previewName">${participants[1].displayName}</div>
+                                <img src="${participants[31].fullImage}">
+                                <div class="previewName">${participants[31].displayName}</div>
                             </div>
                           `
 }
