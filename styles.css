@@ -99,6 +99,7 @@ main > div:nth-child(3) {
 
 /* Character grid */
 #characterSelect {
+    border-top: 2px solid black;
     display: grid;
     grid-template-columns: repeat(22, 1fr);
     gap: 1px;
