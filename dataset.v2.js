@@ -301,7 +301,7 @@ const participants = [{
   "name": "P213",
   "displayName": "Zangief",
   "profilePicture": "/Images/characterProfile/Zangief.png",
-    "fullImage": "/Images/FullCharacter/ZangiefFull.png"
+    "fullImage": "/Images/FullCharacter/Zangief.png"
 }, {
   "id": 81,
   "name": "P095",
