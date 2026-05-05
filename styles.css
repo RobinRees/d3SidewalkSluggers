@@ -40,6 +40,8 @@ main {
     color: white;
 }
 
+/* BUTTONS */
+
 /* Main paneler */
 main > div {
     border: 1px solid black;
@@ -123,4 +125,22 @@ main > div:nth-child(3) {
     width: 160%;
     height: 160%;
     object-fit: cover;
+}
+
+/* Map Select */
+
+#mapMain {
+    flex: 1;
+    display: none;
+    background: Blue;
+    min-height: 0;
+}
+
+/* Leaderboard */
+
+#leaderboardMain {
+    flex: 1;
+    display: none;
+    background: red;
+    min-height: 0;
 }

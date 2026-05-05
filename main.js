@@ -1,3 +1,35 @@
+const characterSelectButton = document.getElementById("characterSelectButton");
+const mapSelectButton = document.getElementById("mapSelectButton");
+const leaderboardButton = document.getElementById("leaderboardButton")
+const main = document.querySelector("main");
+const mapMain = document.getElementById("mapMain")
+const leaderboardMain = document.getElementById("leaderboardMain")
+const characterSelect = document.getElementById("characterSelect")
+
+mapSelectButton.addEventListener("click", () => {
+    main.style.display = "none";
+    characterSelect.style.display = "none";
+    mapMain.style.display = "flex";
+    leaderboardMain.style.display = "none";
+
+})
+
+characterSelectButton.addEventListener("click", () => {
+    main.style.display = "grid";
+    characterSelect.style.display = "grid";
+    mapMain.style.display = "none";
+    leaderboardMain.style.display = "none";
+
+})
+
+leaderboardButton.addEventListener("click", () => {
+    main.style.display = "none";
+    characterSelect.style.display = "none";
+    mapMain.style.display = "none";
+    leaderboardMain.style.display = "flex";
+
+});
+
 function renderCharacterSelect(participants) {
   const container = document.getElementById("characterSelect");
   const preview = document.getElementById("characterFullP1");
