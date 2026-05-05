@@ -6,6 +6,8 @@ const mapMain = document.getElementById("mapMain")
 const leaderboardMain = document.getElementById("leaderboardMain")
 const characterSelect = document.getElementById("characterSelect")
 
+/* Eventlisteners för knappar */
+
 mapSelectButton.addEventListener("click", () => {
     main.style.display = "none";
     characterSelect.style.display = "none";
@@ -28,6 +30,42 @@ leaderboardButton.addEventListener("click", () => {
     mapMain.style.display = "none";
     leaderboardMain.style.display = "flex";
 
+});
+
+/* Funktion för att pre-loada bilderna för folk som inte varit inne på sidan. */
+
+const loadingBar = document.getElementById("loadingBar");
+
+document.getElementById("startButton").addEventListener("click", () => {
+  const startScreen = document.getElementById("startScreen");
+
+  let loaded = 0;
+  const allImages = [];
+
+  participants.forEach(p => {
+    if (p.profilePicture) allImages.push(p.profilePicture);
+    if (p.fullImage) allImages.push(p.fullImage);
+  });
+
+  const total = allImages.length;
+
+  allImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+
+    // Detta betyder att om bilden inte laddas så kommer vi ändå vidare.
+    img.onload = img.onerror = () => {
+      loaded++;
+
+      //För loadingbar. 
+      const progress = loaded / total;
+      loadingBar.style.width = (progress * 100) + "%";
+
+      if (loaded === total) {
+        startScreen.style.display = "none";
+      }
+    };
+  });
 });
 
 function renderCharacterSelect(participants) {
