@@ -127,7 +127,7 @@ const participants = [{
   "name": "P181",
   "displayName": "Chun-li",
   "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003659/Chun-li_nye1i5.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003687/ChunLiFull_kpqkhf.png"
+    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778006477/Chun-liFull3_v4cwz3.png"
 }, {
   "id": 179,
   "name": "P154",
@@ -230,7 +230,7 @@ const participants = [{
   "name": "P056",
   "displayName": "Ken",
   "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Ken_ujex8s.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003691/KenFull_ebjjzr.png"
+    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778006747/KenFull2_qzdczy.png"
 }, {
   "id": 124,
   "name": "P144",
@@ -278,7 +278,7 @@ const participants = [{
   "name": "P201",
   "displayName": "Ryu",
   "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003663/Ryu_pgoqdd.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003693/RyuFull_qf4pgm.png"
+    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778006656/RyuFull2_kkkmpn.png"
 }, {
   "id": 12,
   "name": "P170",
