@@ -127,6 +127,17 @@ main > div:nth-child(3) {
     object-fit: cover;
 }
 
+/* Player TWO */
+
+#playerTwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#characterFullP2 {
+    border-left: 2px solid black;
+}
+
 /* Map Select */
 
 #mapMain {

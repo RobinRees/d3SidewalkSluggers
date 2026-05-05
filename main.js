@@ -65,6 +65,17 @@ function renderCharacterSelect(participants) {
 
 renderCharacterSelect(participants);
 
+function renderRandomPlayerTwo () {
+  const playerTwo = document.getElementById("characterFullP2");
+  playerTwo.innerHTML = `
+                          <div class="previewWrapper">
+                                <img src="${participants[1].fullImage}">
+                                <div class="previewName">${participants[1].displayName}</div>
+                            </div>
+                          `
+}
+
+renderRandomPlayerTwo();
 
 /* 
 
