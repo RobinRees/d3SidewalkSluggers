@@ -108,22 +108,26 @@ const participants = [{
   "id": 268,
   "name": "P106",
   "displayName": "Blanka",
-  "profilePicture": "/Images/characterProfile/Blanka.png"
+  "profilePicture": "/Images/characterProfile/Blanka.png",
+    "fullImage": "/Images/FullCharacter/BlankaFull.png"
 }, {
   "id": 180,
   "name": "P212",
   "displayName": "Cammy",
-  "profilePicture": "/Images/characterProfile/Cammy.png"
+  "profilePicture": "/Images/characterProfile/Cammy.png",
+    "fullImage": "/Images/FullCharacter/CammyFull.png"
 }, {
   "id": 296,
   "name": "P190",
   "displayName": "Charlie Nash",
-  "profilePicture": "/Images/characterProfile/CharlieNash.png"
+  "profilePicture": "/Images/characterProfile/CharlieNash.png",
+    "fullImage": "/Images/FullCharacter/CharlieNashFull.png"
 }, {
   "id": 141,
   "name": "P181",
   "displayName": "Chun-li",
-  "profilePicture": "/Images/characterProfile/Chun-li.png"
+  "profilePicture": "/Images/characterProfile/Chun-li.png",
+    "fullImage": "/Images/FullCharacter/ChunLiFull.png"
 }, {
   "id": 179,
   "name": "P154",
@@ -133,17 +137,20 @@ const participants = [{
   "id": 76,
   "name": "P055",
   "displayName": "Dan",
-  "profilePicture": "/Images/characterProfile/Dan.png"
+  "profilePicture": "/Images/characterProfile/Dan.png",
+    "fullImage": "/Images/FullCharacter/DanFull.png"
 }, {
   "id": 173,
   "name": "P215",
   "displayName": "Dee Jay",
-  "profilePicture": "/Images/characterProfile/DeeJay.png"
+  "profilePicture": "/Images/characterProfile/DeeJay.png",
+    "fullImage": "/Images/FullCharacter/DeeJayFull.png"
 }, {
   "id": 214,
   "name": "P252",
   "displayName": "Dhalsim",
-  "profilePicture": "/Images/characterProfile/Dhalsim.png"
+  "profilePicture": "/Images/characterProfile/Dhalsim.png",
+    "fullImage": "/Images/FullCharacter/DhalsimFull.png"
 }, {
   "id": 169,
   "name": "P016",
@@ -153,7 +160,8 @@ const participants = [{
   "id": 269,
   "name": "P247",
   "displayName": "E. Honda",
-  "profilePicture": "/Images/characterProfile/Ehonda.png"
+  "profilePicture": "/Images/characterProfile/Ehonda.png",
+    "fullImage": "/Images/FullCharacter/EHondaFull.png"
 }, {
   "id": 122,
   "name": "P240",
@@ -163,7 +171,8 @@ const participants = [{
   "id": 58,
   "name": "P175",
   "displayName": "Fei-long",
-  "profilePicture": "/Images/characterProfile/Fei-long.png"
+  "profilePicture": "/Images/characterProfile/Fei-long.png",
+    "fullImage": "/Images/FullCharacter/FeiLongFull.png"
 }, {
   "id": 270,
   "name": "P176",
@@ -183,7 +192,8 @@ const participants = [{
   "id": 190,
   "name": "P300",
   "displayName": "Guile",
-  "profilePicture": "/Images/characterProfile/Guile.png"
+  "profilePicture": "/Images/characterProfile/Guile.png",
+    "fullImage": "/Images/FullCharacter/GuileFull.png"
 }, {
   "id": 68,
   "name": "P029",
@@ -198,7 +208,8 @@ const participants = [{
   "id": 156,
   "name": "P001",
   "displayName": "Ibuki",
-  "profilePicture": "/Images/characterProfile/Ibuki.png"
+  "profilePicture": "/Images/characterProfile/Ibuki.png",
+    "fullImage": "/Images/FullCharacter/IbukiFull.png"
 }, {
   "id": 159,
   "name": "P078",
@@ -208,7 +219,8 @@ const participants = [{
   "id": 201,
   "name": "P056",
   "displayName": "Ken",
-  "profilePicture": "/Images/characterProfile/Ken.png"
+  "profilePicture": "/Images/characterProfile/Ken.png",
+    "fullImage": "/Images/FullCharacter/KenFull.png"
 }, {
   "id": 124,
   "name": "P144",
@@ -218,7 +230,8 @@ const participants = [{
   "id": 149,
   "name": "P107",
   "displayName": "M. Bison",
-  "profilePicture": "/Images/characterProfile/Mbison.png"
+  "profilePicture": "/Images/characterProfile/Mbison.png",
+    "fullImage": "/Images/FullCharacter/MBisonFull.png"
 }, {
   "id": 235,
   "name": "P043",
@@ -248,12 +261,14 @@ const participants = [{
   "id": 181,
   "name": "P201",
   "displayName": "Ryu",
-  "profilePicture": "/Images/characterProfile/Ryu.png"
+  "profilePicture": "/Images/characterProfile/Ryu.png",
+    "fullImage": "/Images/FullCharacter/RyuFull.png"
 }, {
   "id": 12,
   "name": "P170",
   "displayName": "Sagat",
-  "profilePicture": "/Images/characterProfile/Sagat.png"
+  "profilePicture": "/Images/characterProfile/Sagat.png",
+    "fullImage": "/Images/FullCharacter/SegatFull.png"
 }, {
   "id": 195,
   "name": "P285",
@@ -268,7 +283,8 @@ const participants = [{
   "id": 6,
   "name": "P123",
   "displayName": "Thawk",
-  "profilePicture": "/Images/characterProfile/Thawk.png"
+  "profilePicture": "/Images/characterProfile/Thawk.png",
+    "fullImage": "/Images/FullCharacter/THawkFull.png"
 }, {
   "id": 239,
   "name": "P189",
@@ -278,12 +294,14 @@ const participants = [{
   "id": 125,
   "name": "P010",
   "displayName": "Vega",
-  "profilePicture": "/Images/characterProfile/Vega.png"
+  "profilePicture": "/Images/characterProfile/Vega.png",
+    "fullImage": "/Images/FullCharacter/VegaFull.png"
 }, {
   "id": 140,
   "name": "P213",
   "displayName": "Zangief",
-  "profilePicture": "/Images/characterProfile/Zangief.png"
+  "profilePicture": "/Images/characterProfile/Zangief.png",
+    "fullImage": "/Images/FullCharacter/ZangiefFull.png"
 }, {
   "id": 81,
   "name": "P095",
