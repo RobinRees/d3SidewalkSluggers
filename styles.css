@@ -94,7 +94,8 @@ main > div {
 }
 
 main > div:nth-child(2) {
-    background: lightblue;
+    background-color: #040B37;
+    border: 2px solid #0B1971;
 }
 
 
@@ -171,10 +172,84 @@ main > div:nth-child(2) {
     object-fit: cover;
 }
 
+/* STATS Player 1  DELETE AFTER*/ 
+
+#statsP1 {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+
+
+
+#statBox {
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.85);
+    gap: 14px;
+
+    width: fit-content;
+}
+
+
+
+
+.statRow {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    font-size: 1.2rem;
+}
+
+
+
+
+.statRow p {
+
+    width: 80px;
+
+    margin: 0;
+
+    font-weight: bold;
+}
+
+
+
+.statBoxes {
+    display: flex;
+
+    gap: 4px;
+}
+
+
+
+.statBoxes div {
+
+    width: 14px;
+    height: 14px;
+
+    border: 1px solid white;
+
+    background-color: transparent;
+}
+
+
 /* Player TWO */
 
 main > div:nth-child(3) {
-    background: rgb(170, 1, 1);
+    background: rgb(95, 29, 29);
 }
 
 
@@ -204,6 +279,67 @@ main > div:nth-child(3) {
     object-position: center 60%;
 }
 
+/* STAT P2 DELETE AFTER */
+
+
+#statsP2 {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+
+
+
+#statBoxP2 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: fit-content;
+}
+
+
+
+
+#statBoxP2 .statRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    font-size: 1.2rem;
+}
+
+
+
+#statBoxP2 .statBoxes {
+    display: flex;
+    gap: 4px;
+}
+
+
+
+#statBoxP2 .statRow p {
+    width: 80px;
+    margin: 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+#statBoxP2 .statBoxes div {
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+    background-color: transparent;
+}
 /* Map Select */
 
 #mapMain {
@@ -432,6 +568,10 @@ main > div:nth-child(3) {
 #leaderboardMain {
     flex: 1;
     display: none;
-    background: red;
-    min-height: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #040B37;
+    border: 2px solid #0B1971;
+    overflow: hidden;
 }

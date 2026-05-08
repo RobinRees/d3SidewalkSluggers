@@ -90,6 +90,7 @@ function renderCharacterSelect(participants) {
                                 <div class="previewName">${p.displayName}</div>
                             </div>
 `;
+      renderStats()
       }
     });
 
@@ -114,6 +115,173 @@ function renderRandomPlayerTwo () {
 }
 
 renderRandomPlayerTwo();
+
+
+//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. 
+
+function renderStats() {
+
+    const stats = [
+        {
+            name: "Strength",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "red"
+        },
+
+        {
+            name: "Speed",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "cyan"
+        },
+
+        {
+            name: "Defense",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "lime"
+        },
+
+        {
+            name: "Magic",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "purple"
+        },
+
+        {
+            name: "Luck",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "gold"
+        }
+    ];
+
+    const statsContainer = document.getElementById("statsBox");
+
+    statsContainer.innerHTML = "";
+
+    stats.forEach(stat => {
+
+
+        const row = document.createElement("div");
+        row.classList.add("statRow");
+
+
+        const label = document.createElement("p");
+
+        label.textContent = stat.name;
+
+
+        label.style.color = stat.color;
+
+        row.appendChild(label);
+
+        const boxes = document.createElement("div");
+        boxes.classList.add("statBoxes");
+
+
+        for (let i = 0; i < 10; i++) {
+
+            const box = document.createElement("div");
+
+
+            box.style.borderColor = stat.color;
+
+            if (i < stat.value) {
+
+                box.classList.add("filled");
+
+                box.style.backgroundColor = stat.color;
+            }
+
+            boxes.appendChild(box);
+        }
+
+        row.appendChild(boxes);
+
+        statsContainer.appendChild(row);
+    });
+}
+
+
+function renderStatsp2() {
+
+    const stats = [
+        {
+            name: "Strength",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "red"
+        },
+
+        {
+            name: "Speed",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "cyan"
+        },
+
+        {
+            name: "Defense",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "lime"
+        },
+
+        {
+            name: "Magic",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "purple"
+        },
+
+        {
+            name: "Luck",
+            value: Math.floor(Math.random() * 10) + 1,
+            color: "gold"
+        }
+    ];
+
+  const statsContainer2 = document.getElementById("statBox2");
+
+statsContainer2.innerHTML = "";
+
+stats.forEach(stat => {
+
+const row = document.createElement("div");
+row.classList.add("statRow");
+
+const label = document.createElement("p");
+
+label.textContent = stat.name;
+
+label.style.color = stat.color;
+
+const boxes = document.createElement("div");
+boxes.classList.add("statBoxes");
+
+for (let i = 0; i < 10; i++) {
+
+    const box = document.createElement("div");
+
+    box.style.borderColor = stat.color;
+
+    if (i >= 10 - stat.value) {
+
+        box.classList.add("filled");
+
+        box.style.backgroundColor = stat.color;
+    }
+
+    boxes.appendChild(box);
+}
+
+// P2 = BOXES FÖRST
+row.appendChild(boxes);
+
+row.appendChild(label);
+
+statsContainer2.appendChild(row);
+});
+}
+
+renderStatsp2() 
+
+
+
 
 /* 
 
