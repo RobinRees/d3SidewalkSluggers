@@ -176,52 +176,32 @@ main > div:nth-child(2) {
 
 #statsP1 {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     padding: 20px;
-
     box-sizing: border-box;
-
     min-width: 0;
-
     overflow: hidden;
 }
-
-
-
 
 #statBox {
     display: flex;
     flex-direction: column;
     transform: scale(0.85);
     gap: 14px;
-
     width: fit-content;
 }
-
-
-
 
 .statRow {
     display: flex;
     align-items: center;
-
     gap: 4px;
-
     font-size: 1.2rem;
 }
 
-
-
-
 .statRow p {
-
     width: 80px;
-
     margin: 0;
-
     font-weight: bold;
 }
 
@@ -229,19 +209,15 @@ main > div:nth-child(2) {
 
 .statBoxes {
     display: flex;
-
     gap: 4px;
 }
 
 
 
 .statBoxes div {
-
     width: 14px;
     height: 14px;
-
     border: 1px solid white;
-
     background-color: transparent;
 }
 
@@ -249,7 +225,7 @@ main > div:nth-child(2) {
 /* Player TWO */
 
 main > div:nth-child(3) {
-    background: rgb(95, 29, 29);
+    background: rgb(71, 4, 4);
 }
 
 
@@ -277,6 +253,19 @@ main > div:nth-child(3) {
     height: 100%;
     object-fit: cover;
     object-position: center 60%;
+}
+
+/*VS*/
+
+#vsSpace {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tas bort senare JUST FOR SHOW */
+#imgSpace { 
+    display: none;
 }
 
 /* STAT P2 DELETE AFTER */

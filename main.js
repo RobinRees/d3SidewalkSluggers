@@ -90,7 +90,8 @@ function renderCharacterSelect(participants) {
                                 <div class="previewName">${p.displayName}</div>
                             </div>
 `;
-      renderStats()
+      renderStats() // TAS BORT SENARE
+      document.getElementById("imgSpace").style.display = "block";
       }
     });
 
@@ -117,7 +118,7 @@ function renderRandomPlayerTwo () {
 renderRandomPlayerTwo();
 
 
-//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. 
+//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW
 
 function renderStats() {
 
