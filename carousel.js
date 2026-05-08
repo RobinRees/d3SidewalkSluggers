@@ -58,15 +58,20 @@ const mapSelectionCarusel = document.getElementById("mapSelectionCarusel");
 const mapFooter = document.querySelector(".mapFooter");
 const pickedMapSideBar = document.getElementById("pickedMapSidebar");
 
-
+/* Detta är knapparna som skiftar mellan att välja map och sen se grafer */
 
 document.getElementById("pickMapButton").addEventListener("click", () => {
 
     const selectedMap = slides[currentSlide];
     const selectedImage = selectedMap.querySelector("img");
+    const selectedText = selectedMap.querySelector("p");
+
     const pickedImage = document.getElementById("pickedImage");
+    const pickedName = document.getElementById("pickedMapName");
+
     console.log(pickedImage)
     pickedImage.src = selectedImage.src;
+    pickedName.textContent = selectedText.textContent;
 
 
     mapSelectionCarusel.style.display = "none";
@@ -74,8 +79,21 @@ document.getElementById("pickMapButton").addEventListener("click", () => {
     pickedMapSideBar.style.display = "flex";
     mapFooter.setAttribute("id", "activeMapFooter");
     document.getElementById("pickMapButton").style.display = "none"
+        document.getElementById("lollipopGraph").style.display = "block";
+    document.getElementById("footerNav").style.display = "flex";
 
 
     console.log(selectedMap);
 
 });
+
+document.getElementById("backButton").addEventListener("click", () => {
+    mapMain.style.flexDirection = "column";
+    mapFooter.removeAttribute("id", "activeMapFooter");
+    mapSelectionCarusel.style.display = "block";
+    document.getElementById("pickMapButton").style.display = "block"
+    pickedMapSideBar.style.display = "none";
+    document.getElementById("lollipopGraph").style.display = "none";
+    document.getElementById("footerNav").style.display = "none";
+
+})

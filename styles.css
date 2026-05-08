@@ -374,10 +374,57 @@ main > div:nth-child(3) {
     color: blue;
 }
 
+#backButton {
+    background-color: yellow;
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+#backButton:hover {
+    background-color: white;
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+}
+
 /* footerActive - DVS då när man klickat select Map */
 
 #activeMapFooter {
-    height: 100%
+    height: 100%;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+#footerNav {
+    display: none;
+    border: 2px solid #0B1971;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#footerNav > div {
+    border: #0c2ae9 1px solid;
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+#footerNav > div:hover {
+    border: #0c2ae9 1px solid;
+    background-color: white;
+    color: black;
+
+}
+
+#lollipopGraph {
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 /* Leaderboard */
