@@ -7,7 +7,7 @@ const favoritePatch = document.getElementById("selectedPlayerSeason");
 const avrageScore = document.getElementById("selectedPlayerAverage");
 const playedMatches = document.getElementById("selectedPlayerMatches");
 
-
+// Skapar 5 spelare - Bara 5 översta ingenting som kommer användas senare
 for (let i = 0; i < 5; i++) {
     const participant = participants[i];
 
@@ -19,6 +19,8 @@ for (let i = 0; i < 5; i++) {
 
 const clickedFirstPlace = document.getElementById("firstPlaceRow");
 
+
+// Visar falsk fakta, bara för show. kommer nog tas bort också
 clickedFirstPlace.addEventListener("click", () => {
     clickedFirstPlace.style.border = "solid gold 3px";
     selectedPlayerName.innerHTML = "Adon";
