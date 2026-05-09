@@ -1,0 +1,31 @@
+const highscoreRows = document.querySelectorAll(".highscoreRow");
+
+const selectedPlayerName = document.getElementById("selectedPlayerName");
+const favoriteLocation = document.getElementById("selectedPlayerLocation");
+const favoritePlayerDicipline = document.getElementById("selectedPlayerDiscipline");
+const favoritePatch = document.getElementById("selectedPlayerSeason");
+const avrageScore = document.getElementById("selectedPlayerAverage");
+const playedMatches = document.getElementById("selectedPlayerMatches");
+
+
+for (let i = 0; i < 5; i++) {
+    const participant = participants[i];
+
+    const row = highscoreRows[i];
+
+    row.querySelector(".participantName").textContent = participant.displayName;
+    row.querySelector(".participantImage").src = participant.profilePicture;
+}
+
+const clickedFirstPlace = document.getElementById("firstPlaceRow");
+
+clickedFirstPlace.addEventListener("click", () => {
+    clickedFirstPlace.style.border = "solid gold 3px";
+    selectedPlayerName.innerHTML = "Adon";
+    favoriteLocation.innerHTML = "Madrid #3";
+    favoritePlayerDicipline.innerHTML = "Dicipline #3";
+    favoritePatch.innerHTML = "1.2";
+    avrageScore.innerHTML = "3400";
+    playedMatches.innerHTML = "43";
+    document.getElementById("selectedPlayerPortrait").src = "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/AdonFull_sa0man.png"
+})

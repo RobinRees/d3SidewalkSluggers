@@ -1,0 +1,15 @@
+:root{
+    --bgDark:#040B37;
+    --panelDark:#09114D;
+    --panelLight:#131F73;
+    --borderDark:#0B1971;
+    --borderLight:#1B2A8F;
+    --borderBright:#2436B8;
+}
+
+/* Reset */
+
+html,body{
+    height:100%;
+    margin:0;
+}

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="characterSelect.css">
+    <link rel="stylesheet" href="mapSelect.css">
+    <link rel="stylesheet" href="leaderboard.css">
     <title>Street Sluggers</title>
 </head>
 <body>
@@ -111,13 +115,167 @@
 
     </div>
     <div id="leaderboardMain">
+        <div id="leaderboardPanel">
 
+            <div id="leaderboardTopBar">
+
+                <select id="seasonSelect">
+                    <option>Patch 1.0</option>
+                    <option>Patch 1.1</option>
+                    <option>Patch 1.2</option>
+                    <option>Patch 1.3</option>
+                    <option>Patch 1.4</option>
+                    <option>Patch 1.5</option>
+                    <option>Patch 1.6</option>
+                    <option>Patch 1.7</option>
+                    <option>Patch 1.8</option>
+                    <option>Patch 1.9</option>
+                    <option selected>All Time</option>
+                </select>
+
+            </div>
+
+            <div id="leaderboardHeader">
+
+                <p>RANK</p>
+                <p>FIGHTER</p>
+                <p>TOTAL SCORE</p>
+                <p>WINS</p>
+
+            </div>
+
+            <div id="leaderboardRows">
+
+                <div class="highscoreRow" id="firstPlaceRow">
+                    <p class="participantPlacement">#1</p>
+                    <img class="participantImage" src="" alt="">
+                    <p class="participantName"></p>
+                    <p class="participantScore">12,450</p>
+                    <p class="participantWins">18 Wins</p>
+                </div>
+
+                <div class="highscoreRow">
+                    <p class="participantPlacement">#2</p>
+                    <img class="participantImage" src="" alt="">
+                    <p class="participantName"></p>
+                    <p class="participantScore">12,450</p>
+                    <p class="participantWins">18 Wins</p>
+                </div>
+
+                <div class="highscoreRow">
+                    <p class="participantPlacement">#3</p>
+                    <img class="participantImage" src="" alt="">
+                    <p class="participantName"></p>
+                    <p class="participantScore">12,450</p>
+                    <p class="participantWins">18 Wins</p>
+                </div>
+
+                <div class="highscoreRow">
+                    <p class="participantPlacement">#4</p>
+                    <img class="participantImage" src="" alt="">
+                    <p class="participantName"></p>
+                    <p class="participantScore">12,450</p>
+                    <p class="participantWins">18 Wins</p>
+                </div>
+
+                <div class="highscoreRow">
+                    <p class="participantPlacement">#5</p>
+                    <img class="participantImage" src="" alt="">
+                    <p class="participantName"></p>
+                    <p class="participantScore">12,450</p>
+                    <p class="participantWins">18 Wins</p>
+                </div>
+
+            </div>
+
+            <div id="leaderboardFooter">
+
+                <button class="leaderboardArrow">◀</button>
+
+                <p id="leaderboardPageText">
+                    PAGE 1 / 10
+                </p>
+
+                <button class="leaderboardArrow">▶</button>
+
+            </div>
+
+        </div>
+
+        <div id="selectedPlayerPanel">
+            <div id="selectedPlayerTop">
+                <div id="selectedPlayerInfo">
+                    <p id="selectedPlayerName"></p>
+                    <div class="selectedPlayerStatRow">
+                        <p class="selectedPlayerLabel">FAVORITE LOCATION</p>
+                        <p class="selectedPlayerValue"id="selectedPlayerLocation"></p>
+                    </div>
+                    <div class="selectedPlayerStatRow">
+                        <p class="selectedPlayerLabel">FAVORITE DISCIPLINE</p>
+                        <p class="selectedPlayerValue" id="selectedPlayerDiscipline"></p>
+                    </div>
+                    <div class="selectedPlayerStatRow">
+                        <p class="selectedPlayerLabel">MOST PLAYED PATCH</p>
+                        <p class="selectedPlayerValue" id="selectedPlayerSeason"></p>
+                    </div>
+                    <div class="selectedPlayerStatRow">
+                        <p class="selectedPlayerLabel">AVERAGE SCORE</p>
+                        <p class="selectedPlayerValue" id="selectedPlayerAverage"></p>
+                    </div>
+                    <div class="selectedPlayerStatRow">
+                        <p class="selectedPlayerLabel"> TOTAL MATCHES</p>
+                        <p class="selectedPlayerValue" id="selectedPlayerMatches"></p>
+                    </div>
+                </div>
+                <div id="selectedPlayerPortraitContainer">
+                <img id="selectedPlayerPortrait" src=""></div>
+            </div>
+        </div>
+
+        <div id="graphPanel">
+            <div id="graphHeader">Score Trend (Top 5)</div>
+            <div id="graphContainer">
+                <img src="./Images/image 49.png" alt="">
+            </div>
+        </div>
+
+        <div id="topStatsPanel">
+            <div class="topStatCard">
+                <p class="topStatTitle">Highest Score Ever</p>
+                <p class="topStatValue">26 800</p>
+                <p class="topStatPlayer">Name</p>
+                <img class="topStatIcon" src="https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/Balrog_obuh1c.png">
+            </div>
+
+            <div class="topStatCard">
+                <p class="topStatTitle">Most Wins Ever</p>
+                <p class="topStatValue">142</p>
+                <p class="topStatPlayer">Name</p>
+                <img class="topStatIcon" src="https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/Adon_sairce.png">
+            </div>
+
+            <div class="topStatCard">
+                <p class="topStatTitle">Best Pick rate</p>
+                <p class="topStatValue">82.4%</p>
+                <p class="topStatPlayer">Name</p>
+                <img class="topStatIcon" src="https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/Akuma_nqqp2h.png">
+            </div>
+
+            <div class="topStatCard">
+                <p class="topStatTitle">Most Consistent</p>
+                <p class="topStatValue">1.28</p>
+                <p class="topStatPlayer">Name</p>
+                <img class="topStatIcon" src="https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/Blanka_brwya6.png">
+            </div>
+        </div>
+        
     </div>
     <script src="d3.v7.min.js"></script>
     <script src="dataset.v2.js"></script>
     
     <script src="main.js"></script>
     <script src="carousel.js"></script>
+    <script src="leaderboard.js"></script>
     
 </body>
 </html>

@@ -1,0 +1,180 @@
+/* Player One */
+
+#playerOne{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+#characterFullP1{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-right:2px solid black;
+}
+
+.previewWrapper,
+.previewWrapperTwo{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.previewWrapper img,
+.previewWrapperTwo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 60%;
+}
+
+.previewWrapper img{
+    transform:scaleX(-1);
+}
+
+.previewName{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    font:900 5vw Impact,Arial Black,sans-serif;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:gold;
+    text-shadow:
+        3px 3px 0 black,
+        6px 6px 10px rgba(0,0,0,0.8);
+}
+
+
+
+/* Character Grid */
+
+#characterSelect{
+    display:grid;
+    grid-template-columns:repeat(22,1fr);
+    gap:1px;
+    background:aquamarine;
+    border-top:2px solid black;
+    z-index:4;
+}
+
+.characterCell{
+    aspect-ratio:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:black;
+}
+
+.characterCell:hover{
+    outline:4px solid rgb(34,34,255);
+}
+
+.characterCell img{
+    width:160%;
+    height:160%;
+    object-fit:cover;
+}
+
+
+
+/* Stats */
+
+#statsP1,
+#statsP2{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    box-sizing:border-box;
+    min-width:0;
+    overflow:hidden;
+}
+
+#statBox,
+#statBoxP2{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    width:fit-content;
+}
+
+#statBox{
+    transform:scale(0.85);
+}
+
+.statRow,
+#statBoxP2 .statRow{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:1.2rem;
+}
+
+#statBoxP2 .statRow{
+    justify-content:flex-end;
+}
+
+.statBoxes,
+#statBoxP2 .statBoxes{
+    display:flex;
+    gap:4px;
+}
+
+.statRow p,
+#statBoxP2 .statRow p{
+    width:80px;
+    margin:0;
+    font-weight:bold;
+}
+
+#statBoxP2 .statRow p{
+    text-align:left;
+}
+
+.statBoxes div{
+    width:14px;
+    height:14px;
+    border:1px solid white;
+    background-color:transparent;
+}
+
+#statBoxP2 .statBoxes div{
+    width:18px;
+    height:18px;
+}
+
+
+
+/* Player Two */
+
+main>div:nth-child(3){
+    background:rgb(71,4,4);
+}
+
+#playerTwo{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+#characterFullP2{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-left:2px solid black;
+}
+
+
+
+/* VS */
+
+#vsSpace{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#imgSpace{
+    display:none;
+}

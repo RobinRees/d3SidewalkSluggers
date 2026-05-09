@@ -28,7 +28,7 @@ leaderboardButton.addEventListener("click", () => {
     main.style.display = "none";
     characterSelect.style.display = "none";
     mapMain.style.display = "none";
-    leaderboardMain.style.display = "flex";
+    leaderboardMain.style.display = "grid";
 
 });
 
