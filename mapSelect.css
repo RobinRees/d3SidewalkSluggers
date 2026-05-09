@@ -64,7 +64,7 @@
 
 
 
-/* Carousel Buttons */
+/* Karusell Buttons */
 
 .carouselButton{
     position:absolute;
@@ -128,7 +128,7 @@
 
 
 
-/* Picked Map Sidebar */
+/* Picked Map Sidebar (Den som dyker upp när man trycker select)*/
 
 #pickedMapSidebar{
     width:20vw;
@@ -177,7 +177,7 @@
 
 
 
-/* Active Footer (När man trycker på Select */
+/* Active Footer (När man trycker på Select) (Den förstoras) */
 
 #activeMapFooter{
     height:100%;

@@ -25,7 +25,7 @@
 
 
 
-/* Leaderboard Panel */
+/* Leaderboard Panel, Själva leaderboarden */
 
 #leaderboardPanel{
     display:flex;
@@ -142,7 +142,7 @@
 
 
 
-/* Selected Player */
+/* Högra top hörnet, den man markerat och ser Stats i för den man valt */
 
 #selectedPlayerPanel{
     padding:4%;
@@ -209,7 +209,7 @@
 
 
 
-/* Graph */
+/* Grafen */
 
 #graphPanel{
     display:flex;
@@ -237,7 +237,7 @@
 
 
 
-/* Top Stats */
+/* Top Stats (Dem fyra rutorna i högra hörnet) */
 
 #topStatsPanel{
     display:grid;
