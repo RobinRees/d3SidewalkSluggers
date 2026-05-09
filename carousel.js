@@ -58,7 +58,7 @@ const mapSelectionCarusel = document.getElementById("mapSelectionCarusel");
 const mapFooter = document.querySelector(".mapFooter");
 const pickedMapSideBar = document.getElementById("pickedMapSidebar");
 
-/* Detta är knapparna som skiftar mellan att välja map och sen se grafer */
+/* Detta är knapparna som skiftar mellan att välja map och sen se grafer, Får footern att förstoras och sidebaren att visas*/
 
 document.getElementById("pickMapButton").addEventListener("click", () => {
 
@@ -79,7 +79,7 @@ document.getElementById("pickMapButton").addEventListener("click", () => {
     pickedMapSideBar.style.display = "flex";
     mapFooter.setAttribute("id", "activeMapFooter");
     document.getElementById("pickMapButton").style.display = "none"
-        document.getElementById("lollipopGraph").style.display = "block";
+    document.getElementById("lollipopGraph").style.display = "block";
     document.getElementById("footerNav").style.display = "flex";
 
 
