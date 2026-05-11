@@ -6,22 +6,6 @@ body{
     background:bisque;
 }
 
-main{
-    flex:1;
-    display:grid;
-    grid-template-columns:10fr 9fr 10fr;
-    background:rgb(0,30,128);
-    min-height:0;
-}
-
-main>div{
-    border:1px solid black;
-}
-
-main>div:nth-child(2){
-    background-color:var(--bgDark);
-    border:2px solid var(--borderDark);
-}
 
 /* Start Screen */
 

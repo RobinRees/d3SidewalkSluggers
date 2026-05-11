@@ -72,32 +72,64 @@ function renderCharacterSelect(participants) {
   const container = document.getElementById("characterSelect");
   const preview = document.getElementById("characterFullP1");
 
+  let selectedCell = null;
+  let lockedCharacter = false;
+
   participants.forEach((p) => {
     const cell = document.createElement("div");
     cell.classList.add("characterCell");
 
     if (p.profilePicture) {
-      const img = document.createElement("img");
-      img.src = p.profilePicture;
-      cell.appendChild(img);
+        const img = document.createElement("img");
+        img.src = p.profilePicture;
+        cell.appendChild(img);
     }
 
+    /* när man hovrar en karaktär */
     cell.addEventListener("mouseenter", () => {
-      if (p.fullImage) {
+        if (lockedCharacter) return;
+
+        preview.innerHTML = `
+                            <div class="previewWrapper fullscreenPreview">
+                                <img src="${p.fullImage}">
+                                <div class="previewName">${p.displayName}</div>
+                            </div>
+`;
+    });
+
+    /* bara för att tömma efter man hovrar och inte valt någon */
+    cell.addEventListener("mouseleave", () => {
+        if (lockedCharacter) return;
+
+        preview.innerHTML = "";
+    })
+
+
+    /* för att locka in */
+    cell.addEventListener("click", () => {
+        document.getElementById("playerOne").classList.add("selected");
+        document.getElementById("statsP1").style.display = "flex";
+
+        if (selectedCell) {
+            selectedCell.style.border = "";
+        }
+
+        selectedCell = cell;
+        lockedCharacter = true;
+
+        cell.style.border = "5px solid blue";
+        if (p.fullImage) {
         preview.innerHTML = `
                             <div class="previewWrapper">
                                 <img src="${p.fullImage}">
                                 <div class="previewName">${p.displayName}</div>
                             </div>
 `;
-      renderStats() // TAS BORT SENARE
-      document.getElementById("imgSpace").style.display = "block";
-      }
+        renderStats() // TAS BORT SENARE
+        document.getElementById("imgSpace").style.display = "block";
+        }
     });
 
-    cell.addEventListener("mouseleave", () => {
-      preview.innerHTML = "";
-    });
 
     container.appendChild(cell);
   });
@@ -106,8 +138,8 @@ function renderCharacterSelect(participants) {
 renderCharacterSelect(participants);
 
 function renderRandomPlayerTwo () {
-  const playerTwo = document.getElementById("characterFullP2");
-  playerTwo.innerHTML = `
+    const playerTwo = document.getElementById("characterFullP2");
+    playerTwo.innerHTML = `
                           <div class="previewWrapperTwo">
                                 <img src="${participants[31].fullImage}">
                                 <div class="previewName">${participants[31].displayName}</div>
@@ -154,7 +186,7 @@ function renderStats() {
         }
     ];
 
-    const statsContainer = document.getElementById("statsBox");
+    const statsContainer = document.getElementById("statsP1");
 
     statsContainer.innerHTML = "";
 
@@ -236,36 +268,36 @@ function renderStatsp2() {
         }
     ];
 
-  const statsContainer2 = document.getElementById("statBox2");
+  const statsContainer2 = document.getElementById("statsP2");
 
-statsContainer2.innerHTML = "";
+    statsContainer2.innerHTML = "";
 
-stats.forEach(stat => {
+    stats.forEach(stat => {
 
-const row = document.createElement("div");
-row.classList.add("statRow");
+    const row = document.createElement("div");
+    row.classList.add("statRow");
 
-const label = document.createElement("p");
+    const label = document.createElement("p");
 
-label.textContent = stat.name;
+    label.textContent = stat.name;
 
-label.style.color = stat.color;
+    label.style.color = stat.color;
 
-const boxes = document.createElement("div");
-boxes.classList.add("statBoxes");
+    const boxes = document.createElement("div");
+    boxes.classList.add("statBoxes");
 
-for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
 
-    const box = document.createElement("div");
+        const box = document.createElement("div");
 
-    box.style.borderColor = stat.color;
+        box.style.borderColor = stat.color;
 
-    if (i >= 10 - stat.value) {
+        if (i >= 10 - stat.value) {
 
-        box.classList.add("filled");
+            box.classList.add("filled");
 
-        box.style.backgroundColor = stat.color;
-    }
+            box.style.backgroundColor = stat.color;
+        }
 
     boxes.appendChild(box);
 }
