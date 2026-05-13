@@ -101,11 +101,12 @@
 
 .mapFooter{
     width:99%;
+    background-color: var(--panelLight);
     height:10vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    border:2px solid var(--borderDark);
+    border:2px solid var(--borderBright);
 }
 
 #pickMapButton,
