@@ -150,7 +150,7 @@ function renderRandomPlayerTwo () {
 renderRandomPlayerTwo();
 
 
-//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW
+//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW ALLT HÄR KOMMER TAS BORT
 
 function renderStats() {
 
