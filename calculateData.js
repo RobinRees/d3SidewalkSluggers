@@ -10,13 +10,35 @@ function calculateStats () {
         }
     })
 
+    seasons.forEach(season => {
+        let currentYear = season.year;
+
+        season.competitionDays.forEach(day => {
+            day.events.forEach(event => {
+                const discipline = disciplines.find(d =>
+                    d.id === event.disciplineId
+                );
+
+                event.scores.forEach(score => {
+                    const participant = participants.find(p =>
+                        p.id === score.participantId
+                    );   
+                    
+                    Object.entries(discipline.skillFactors).forEach(([skill, factor]) => {
+                        participant.stats[skill] += (score.score * factor) / 1000000;
+                    });
+                })
+
+            })
+        })
+    })
+
     /* 
     
     Sen här måste vi på någotsätt gå igonom allt för att få ut så att rätt persons score läggs rätt.
     Kommer vara många loppar
     
     */
-
 
 
 }
@@ -70,6 +92,8 @@ function totalScorePerSeason () {
     })
 
 }
+
+calculateStats();
 
 totalScorePerSeason();
 
