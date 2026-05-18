@@ -173,7 +173,7 @@
     background-color: var(--panelLight);
 }
 
-#patchGrid>div:hover{
+#patchGrid>div.selected, #footerNav>div.selected{
     background-color:white;
     color:blue;
 }
