@@ -31,3 +31,13 @@ clickedFirstPlace.addEventListener("click", () => {
     playedMatches.innerHTML = "43";
     document.getElementById("selectedPlayerPortrait").src = "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/AdonFull_sa0man.png"
 })
+
+const graphContainer = document.querySelector("#graphContainer");
+
+const hSvg = 210, wSvg = "90%";
+
+const svg = d3.select(graphContainer)
+    .append("svg")
+    .attr("height", hSvg)
+    .attr("width", wSvg)
+    .style("border", "2px solid var(--borderBright)");

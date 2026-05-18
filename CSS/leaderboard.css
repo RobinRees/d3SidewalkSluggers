@@ -229,12 +229,6 @@
     border:2px solid var(--borderBright);
 }
 
-#graphContainer>img{
-    height:80%;
-    object-fit:contain;
-}
-
-
 
 /* Top Stats (Dem fyra rutorna i högra hörnet) */
 
