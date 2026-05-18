@@ -32,7 +32,7 @@ function totalScorePerSeason () {
 
 }
 
-function findTopFiveCharactersOfAllTime () {
+(function createTotalScoreKey () {
     participants.forEach(char => {
         char.totalScore = 0;
         let totalScore = 0;
@@ -41,6 +41,10 @@ function findTopFiveCharactersOfAllTime () {
         }
         char.totalScore = totalScore;
     })
-}
+}());
 
-findTopFiveCharactersOfAllTime();
+(function findTopFiveOAT () {
+    let topFiveChars = [];
+    let highestScore = 0;
+    
+}());
