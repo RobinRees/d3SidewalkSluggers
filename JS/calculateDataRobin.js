@@ -33,9 +33,61 @@ function calculateStats () {
 
     Vi gör detta för varje skill.
 
+    P1, D1 - E.filter D1, P1 . Reduce (sum) * D1 SF1 / antalet D1 matcher du varit med i, + e.filter(D2,p1) reduce * d2.Sk1
+
+    Domain range - 10 - 20. 
+
 
 */
+function calculateSkillFactors () {
 
+    // för varje participant. skapa följande
+
+    participants.forEach(participant => {
+        participant.statslist = {
+            S1: 0, 
+            S2: 0,
+            S3: 0,
+            S4: 0,
+            S5: 0
+        }
+    })
+
+    participants.forEach(p => {
+        // beräkna alla poäng för denna p för varje disciplin
+        disciplines.forEach
+        for (let skill in p.statslist) {
+
+        }
+    })
+
+    seasons.forEach(season => {
+        season.competitionDays.forEach(day => {
+            day.events.forEach(event => {
+                disciplines.forEach(discipline => {
+                    let currentDicipline = discipline.id;
+                    if (discipline.id === event.disciplineId) {
+                        event.scores.forEach(score => {
+                            participants.forEach(person => {
+                                if (person.id === score.participantId) {
+                                    person.statslist[`S${currentDicipline}`] += score.score;
+                                }
+                            })
+                        })
+                    }
+                })
+            })
+        })
+    })
+
+
+
+    // För varje dicipline.
+    // För varje säsång => går jag in i varje Comp day. 
+    // Kolla om diciplineId = id:
+    // Kolla om participants
+}
+calculateSkillFactors ()
 
 function totalScorePerSeason () {
     participants.forEach(participant => {
@@ -73,6 +125,6 @@ function totalScorePerSeason () {
 
 totalScorePerSeason();
 
-function disciplineScorePerSeason () {
 
-}
+
+
