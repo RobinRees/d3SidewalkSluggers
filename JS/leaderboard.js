@@ -49,5 +49,7 @@ const topFiveOAT = findTopFiveOAT(participants);
 
 for (let char of topFiveOAT) {
     svg.append("g")
+        .selectAll("rect")
+        .data()
         
 }

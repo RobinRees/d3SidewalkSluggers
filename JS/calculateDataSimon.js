@@ -49,7 +49,18 @@ function sortByTotalScore(participants) {               // When called returns w
     return participants.sort((a, b) => b.totalScore - a.totalScore)
 }
 
-function findTopFiveOAT(participants) {                 // When called returns array of 5 participant 
-    return sortByTotalScore(participants).slice(0, 5)   // objects which key totalScore is of highest number
+function findTopFiveOAT(participants) {                 // When called returns array of 5 participant objects which key totalScore is of highest number
+    return sortByTotalScore(participants).slice(0, 5)
 };
 
+function createDatasetForCoords(placement) {
+    let dataset = [];
+
+    for (i = 0; i <= 9; i++) {
+        dataset.push({"year": i, "score": `${findTopFiveOAT(participants)[placement].totalScorePerSeason[`year${i}`]}`});
+    }
+    console.log(dataset);
+    
+}
+
+// [{year: i, score: `${char.totalScorePerSeason.year}` + `${i}`}]

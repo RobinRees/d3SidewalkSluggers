@@ -1,17 +1,17 @@
 function f1 () {
-    console.log("hej");
+    //console.log("hej");
 }
 
 const a = [1,2].map(x => x * 2); // returnerar 1 `* 2 och 2 * 2 i en array. Eller gångar alla elemnent med 2
 
-console.log(a);
+//console.log(a);
 
 //MAP - Returnerar en ny array (transformerad).  
 
 
 {
  const a = [1.1, 1.2,4.5].map(x => Math.floor(x))
- console.log(a) // returnerar array med 1 1 4
+ //console.log(a) // returnerar array med 1 1 4
 }
 
 // Filter 
@@ -20,7 +20,7 @@ console.log(a);
 {
     const a1 = [1.1,1.2,4.5]
  const a2 = [1.1, 1.2,4.5].filter(Math.floor)
- console.log(a2) // returnerar array med 1 1 4
+ //console.log(a2) // returnerar array med 1 1 4
 }
 
 // FIND
@@ -37,7 +37,7 @@ console.log(a);
 
 // reduce 
 // 
-console.log("Reduce under här")
+//console.log("Reduce under här")
 {
 
     function s (x , y) {return x + y };
@@ -45,7 +45,7 @@ console.log("Reduce under här")
     const b4 = [1,2,3,4,5,6,7,8].reduce((acc, current) => {
         return acc + current;
     }, 0);
-    console.log(b4)
+    //console.log(b4)
 }
 
 const sumOfAllIds = disciplines.reduce((acc, current) => {
@@ -61,17 +61,17 @@ const sumOfAllFactors = disciplines.reduce((acc, current) => {
 
 
 
-console.log("Här slutar reduce")
+//console.log("Här slutar reduce")
 
 
 
 for (let discipline of disciplines) {
     if (discipline.skillFactors.S01 < 20) continue
-    console.log(discipline.name, discipline.skillFactors.S01) 
+    //console.log(discipline.name, discipline.skillFactors.S01) 
 
     disciplines.forEach(x => {
         if (x.skillFactors.S01 > 20) {
-            console.log(x.name, x.skillFactors.S01)
+            //console.log(x.name, x.skillFactors.S01)
         } 
     })
 }
