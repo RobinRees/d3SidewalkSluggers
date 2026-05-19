@@ -330,22 +330,22 @@ const participants = [{
 }, {
   "id": 160,
   "name": "P047",
-  "displayName": "",
+  "displayName": "Test1",
   "profilePicture": ""
 }, {
   "id": 192,
   "name": "P033",
-  "displayName": "",
+  "displayName": "Tes2",
   "profilePicture": ""
 }, {
   "id": 274,
   "name": "P063",
-  "displayName": "",
+  "displayName": "Test3",
   "profilePicture": ""
 }, {
   "id": 119,
   "name": "P254",
-  "displayName": "",
+  "displayName": "Test4",
   "profilePicture": ""
 }];
 const coaches = [{

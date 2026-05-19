@@ -76,6 +76,8 @@ document.getElementById("pickMapButton").addEventListener("click", () => {
 
     currentSelections.location = selectedLocation.id;
 
+    console.log(currentSelections);
+
 
     mapSelectionCarusel.style.display = "none";
     mapMain.style.flexDirection = "row";
@@ -101,95 +103,148 @@ document.getElementById("backButton").addEventListener("click", () => {
 
 })
 
+const patches = [
+    { id: 0, name: "1.1" },
+    { id: 1, name: "1.2" },
+    { id: 2, name: "1.3" },
+    { id: 3, name: "1.4" },
+    { id: 4, name: "1.5" },
+    { id: 5, name: "1.6" },
+    { id: 6, name: "1.7" },
+    { id: 7, name: "1.8" },
+    { id: 8, name: "1.9" },
+    { id: 9, name: "Current" }
+];
 
-const patches = {
-    year0: "1.1",
-    year1: "1.2",
-    year2: "1.3",
-    year3: "1.4",
-    year4: "1.5",
-    year5: "1.6",
-    year6: "1.7",
-    year7: "1.8",
-    year8: "1.9",
-    year9: "Current"
-};
-
-
-
-const disciplineOptions = {
-    overall: "Overall",
-    1: "Discipline #1",
-    2: "Discipline #2",
-    3: "Discipline #3",
-    4: "Discipline #4",
-    5: "Discipline #5"
-};
-
-
+const disciplineOptions = [
+    { id: "overall", name: "Overall" },
+    { id: 1, name: "Discipline #1" },
+    { id: 2, name: "Discipline #2" },
+    { id: 3, name: "Discipline #3" },
+    { id: 4, name: "Discipline #4" },
+    { id: 5, name: "Discipline #5" }
+];
 
 const currentSelections = {
-    location: 1,
-    patch: "year9",
+    location: null,
+    patch: 9,
     discipline: "overall"
 };
 
-
-
 const patchGrid = document.getElementById("patchGrid");
+
+patches.forEach(patch => {
+    const button = document.createElement("div");
+
+    button.textContent = patch.name;
+    button.classList.add("patchButton");
+
+    if (patch.id === currentSelections.patch) {
+        button.classList.add("selected");
+    }
+
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".patchButton")
+            .forEach(button => {
+                button.classList.remove("selected");
+            });
+
+        button.classList.add("selected");
+        currentSelections.patch = patch.id;
+        console.log(currentSelections);
+        renderLollipopGraph ()
+    });
+
+    patchGrid.append(button);
+});
+
 const footerNav = document.getElementById("footerNav");
 
-for (let patch in patches) {
+disciplineOptions.forEach(discipline => {
+    const button = document.createElement("div");
+    button.textContent = discipline.name;
+    button.classList.add("disciplineButton");
 
-    const patchButton = document.createElement("div");
-    patchButton.textContent = patches[patch];
-    patchButton.classList.add("patchButton");
-
-    // DEFAULT SELECTED
-    if (patch === currentSelections.patch) {
-        patchButton.classList.add("selected");
+    if (discipline.id === currentSelections.discipline) {
+        button.classList.add("selected");
     }
 
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".disciplineButton")
+            .forEach(button => {
+                button.classList.remove("selected");
+            });
 
+        button.classList.add("selected");
+        currentSelections.discipline = discipline.id;
+        console.log(button);
+        renderLollipopGraph ()
+    });
 
-    patchButton.addEventListener("click", () => {
+    footerNav.append(button);
+})
 
-        document.querySelectorAll(".patchButton").forEach(button => {
-            button.classList.remove("selected");
+function getParticipantTotals() {
+
+    if (currentSelections.location === null) {
+        return [];
+    }
+
+    const totals = {};
+
+    seasons.forEach(season => {
+
+        if (season.year !== currentSelections.patch) {
+            return;
+        }
+
+        season.competitionDays.forEach(day => {
+
+            if (day.locationId !== currentSelections.location) {
+                return;
+            }
+
+            day.events.forEach(event => {
+
+                if (
+                    currentSelections.discipline !== "overall" &&
+                    event.disciplineId !== currentSelections.discipline
+                ) {
+                    return;
+                }
+
+                event.scores.forEach(score => {
+
+                    if (!totals[score.participantId]) {
+                        totals[score.participantId] = 0;
+                    }
+
+                    totals[score.participantId] += score.score;
+
+                });
+
+            });
+
         });
-
-        patchButton.classList.add("selected");
-        currentSelections.patch = patch;
 
     });
 
-    patchGrid.append(patchButton);
-}
+    const result = participants.map(participant => {
 
-for (let d in disciplineOptions) {
-    const disciplineButton = document.createElement("div");
-    disciplineButton.textContent = disciplineOptions[d];
-    disciplineButton.classList.add("disciplineButton");
+        return {
+            name: participant.displayName,
+            total: totals[participant.id] || 0
+        };
 
-    if (d === currentSelections.discipline) {
-        disciplineButton.classList.add("selected");
-    }
-
-
-
-    disciplineButton.addEventListener("click", () => {
-
-        document.querySelectorAll(".disciplineButton").forEach(button => {
-            button.classList.remove("selected");
-        });
-
-        disciplineButton.classList.add("selected");
-        currentSelections.discipline = d;
     });
 
+    return result;
+}
+
+function renderLollipopGraph() {
 
 
-    footerNav.append(disciplineButton);
 
 }
 
+renderLollipopGraph ()
