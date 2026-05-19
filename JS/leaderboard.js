@@ -32,12 +32,22 @@ clickedFirstPlace.addEventListener("click", () => {
     document.getElementById("selectedPlayerPortrait").src = "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/AdonFull_sa0man.png"
 })
 
+// svg segment
+
 const graphContainer = document.querySelector("#graphContainer");
 
-const hSvg = 210, wSvg = "90%";
+const hSvg = "100%", wSvg = "100%";
+const hPadding = "10%", wPadding = "15%"
 
 const svg = d3.select(graphContainer)
     .append("svg")
     .attr("height", hSvg)
     .attr("width", wSvg)
     .style("border", "2px solid var(--borderBright)");
+
+const topFiveOAT = findTopFiveOAT(participants);
+
+for (let char of topFiveOAT) {
+    svg.append("g")
+        
+}

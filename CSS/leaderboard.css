@@ -227,6 +227,10 @@
     flex:1;
     background-color:var(--panelLight);
     border:2px solid var(--borderBright);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

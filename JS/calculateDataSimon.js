@@ -45,14 +45,11 @@
     })
 }());
 
-function findTopFiveOAT(participants) {                 // When called returns array of 5 participant objects which key totalScore is of highest number
-    return sortByTotalScore(participants).slice(0, 5)
-
-    // return participants
-    //     .sort((a, b) => b.totalScore - a.totalScore)
-    //     .slice(0, 5) 
-};
-
 function sortByTotalScore(participants) {               // When called returns whole participant array sorted by key totalScore
     return participants.sort((a, b) => b.totalScore - a.totalScore)
 }
+
+function findTopFiveOAT(participants) {                 // When called returns array of 5 participant 
+    return sortByTotalScore(participants).slice(0, 5)   // objects which key totalScore is of highest number
+};
+
