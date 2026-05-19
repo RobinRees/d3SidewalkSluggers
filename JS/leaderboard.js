@@ -45,11 +45,20 @@ const svg = d3.select(graphContainer)
     .attr("width", wSvg)
     .style("border", "2px solid var(--borderBright)");
 
-const topFiveOAT = findTopFiveOAT(participants);
+// const topFiveOAT = findTopFiveOAT(participants);
 
-for (let char of topFiveOAT) {
+for (let i = 0; i <= 4; i++) {
+    let lineDataset = [ createDatasetForCoords(i) ];
+
+    const dMakerFunction = d3.line();
+    dMakerFunction.x(d => d.year);
+    dMakerFunction.y(d => d.score);
+
     svg.append("g")
         .selectAll("rect")
-        .data()
-        
+        .data(lineDataset)
+        .enter()
+        .append("path")
+        .attr("stroke", "#1BFF1B")
+        .attr("fill", "none")
 }

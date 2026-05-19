@@ -62,5 +62,3 @@ function createDatasetForCoords(placement) {
     console.log(dataset);
     
 }
-
-// [{year: i, score: `${char.totalScorePerSeason.year}` + `${i}`}]
