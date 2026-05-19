@@ -1,6 +1,6 @@
 // Create totalScorePerSeason
 
-function totalScorePerSeason() {
+(function totalScorePerSeason() {
     participants.forEach(participant => {
         participant.totalScorePerSeason = {
             year0: 0,
@@ -32,7 +32,7 @@ function totalScorePerSeason() {
         })
     })
 
-}
+}());
 
 (function createTotalScoreKey() {
     participants.forEach(char => {
@@ -46,9 +46,11 @@ function totalScorePerSeason() {
 }());
 
 function findTopFiveOAT(participants) {                 // When called returns array of 5 participant objects which key totalScore is of highest number
-    return participants
-        .sort((a, b) => b.totalScore - a.totalScore)
-        .slice(0, 5) 
+    return sortByTotalScore(participants).slice(0, 5)
+
+    // return participants
+    //     .sort((a, b) => b.totalScore - a.totalScore)
+    //     .slice(0, 5) 
 };
 
 function sortByTotalScore(participants) {               // When called returns whole participant array sorted by key totalScore
