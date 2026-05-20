@@ -51,8 +51,8 @@
 
 #leaderboardHeader{
     display:grid;
-    grid-template-columns:8% 1fr 20% 15%;
-    align-items:center;
+    grid-template-columns:10% 7% 84%;
+    align-items: center;
     padding:0 2%;
     margin-bottom:8px;
     color:#8EA2FF;
@@ -61,6 +61,10 @@
 
 #leaderboardHeader p{
     margin:0;
+}
+
+#totalScore {
+    justify-self: end;
 }
 
 #leaderboardRows{

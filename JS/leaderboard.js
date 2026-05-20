@@ -1,4 +1,3 @@
-const highscoreRows = document.querySelectorAll(".highscoreRow");
 
 const selectedPlayerName = document.getElementById("selectedPlayerName");
 const favoriteLocation = document.getElementById("selectedPlayerLocation");
@@ -6,6 +5,9 @@ const favoritePlayerDicipline = document.getElementById("selectedPlayerDisciplin
 const favoritePatch = document.getElementById("selectedPlayerSeason");
 const avrageScore = document.getElementById("selectedPlayerAverage");
 const playedMatches = document.getElementById("selectedPlayerMatches");
+
+const scoreboardRowContainer = document.querySelector("#leaderboardRows")
+
 
 // segment: patch selector
 
@@ -15,12 +17,14 @@ allTimeBtn.classList.add("patchOption");
 allTimeBtn.classList.add("selected");
 allTimeBtn.textContent = "All time";
 allTimeBtn.addEventListener("click", () => {
+    scoreboardRowContainer.innerHTML = "";
     document.querySelectorAll(".patchOption")
         .forEach(option => {
             option.classList.remove("selected");
         });
 
     allTimeBtn.classList.add("selected");
+    if (allTimeBtn.classList.contains("selected")) updateScoreboard("All time")
 });
 
 
@@ -33,46 +37,59 @@ patches.forEach(patch => {
     option.textContent = patch.name;
 
     option.addEventListener("click", () => {
+        scoreboardRowContainer.innerHTML = "";
         document.querySelectorAll(".patchOption")
             .forEach(option => {
                 option.classList.remove("selected");
             });
 
         option.classList.add("selected");
-        if (option.classList.includes("selected")) updateScoreboard(patch.id);
+        if (option.classList.contains("selected")) updateScoreboard(patch.id);
     })
-})
-
-// Skapar 5 spelare - Bara 5 översta ingenting som kommer användas senare
-for (let i = 0; i < 5; i++) {
-    const participant = participants[i];
-
-    const row = highscoreRows[i];
-
-    row.querySelector(".participantName").textContent = participant.displayName;
-    row.querySelector(".participantImage").src = participant.profilePicture;
-}
-
-const clickedFirstPlace = document.getElementById("firstPlaceRow");
-
-
-// Visar falsk fakta, bara för show. kommer nog tas bort också
-clickedFirstPlace.addEventListener("click", () => {
-    clickedFirstPlace.style.border = "solid gold 3px";
-    selectedPlayerName.innerHTML = "Adon";
-    favoriteLocation.innerHTML = "Madrid #3";
-    favoritePlayerDicipline.innerHTML = "Dicipline #3";
-    favoritePatch.innerHTML = "1.2";
-    avrageScore.innerHTML = "3400";
-    playedMatches.innerHTML = "43";
-    document.getElementById("selectedPlayerPortrait").src = "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/AdonFull_sa0man.png"
 })
 
 // segment: svg creation for Top Characters per Season
 
 function updateScoreboard(patchId) {
+    
+    if (patchId === "All time") {
+        for (let i = 0; i <= 4; i++) {
+            const row = document.createElement("div");
+            row.classList.add("highscoreRow");
+            scoreboardRowContainer.append(row);
+            
+            const placementNmr = document.createElement("p");
+            placementNmr.classList.add("participantPlacement");
+            placementNmr.textContent = "#" + (i + 1);
+            row.append(placementNmr);
 
+            const charImg = document.createElement("img");
+            charImg.classList.add("participantImage");
+            charImg.src = findTopFiveOAT(participants)[i].profilePicture;
+            row.append(charImg);
+
+            const charNameP = document.createElement("p");
+            charNameP.classList.add("participantName");
+            charNameP.textContent = findTopFiveOAT(participants)[i].displayName;
+            row.append(charNameP);
+
+            const charScoreP = document.createElement("p");
+            charScoreP.classList.add("participantScore");
+            charScoreP.textContent = findTopFiveOAT(participants)[i].totalScore;
+            row.append(charScoreP);
+        }
+    }
+
+
+    // patches.forEach(patch => {
+    //     if(patch.id == patchId) {
+
+    //     }
+    // })
 }
+
+updateScoreboard("All time");
+
 
 // segment: svg creation for Top Characters of All time
 
