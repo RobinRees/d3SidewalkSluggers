@@ -19,7 +19,15 @@ html,body{
 body{
     display:flex;
     flex-direction:column;
-    background:bisque;
+    background-color: var(--bgDark);
+}
+
+body>h2 {
+    color: orange;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 40px;
 }
 
 
@@ -80,17 +88,19 @@ body{
     justify-content:center;
     gap:1vh;
     padding:5px;
-    margin-top:70px;
-    background:lightblue;
+    margin-top:30px;
+    background:var(--panelLight);
+    border: 2px solid var(--borderLight);
+    color: gold;
 }
 
 #navBar div{
     padding:10px;
-    background:gray;
-    border:1px solid blue;
+    background:var(--borderBright);
+    border:1px solid var(--borderDark);
 }
 
 #navBar div:hover{
-    background:black;
-    color:white;
+    background:white;
+    color:black;
 }
