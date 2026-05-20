@@ -218,7 +218,7 @@ function renderStats(participant) {
     console.log(S01BestPerformance);
     console.log(participants);
 
-    let svg = d3.select("#p1BarChart")
+    let svg = d3.select(container)
         .append("svg")
         .attr("width", width)
         .attr("height", height)
@@ -231,7 +231,7 @@ function renderStats(participant) {
         .attr("width", d => {
             const xScale = d3.scaleLinear()
                 .domain([0, d.max])
-                .range([0, 10])
+                .range([0, 200])
 
             return xScale(d.value);
         })
