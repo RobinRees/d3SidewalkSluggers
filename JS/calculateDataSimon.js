@@ -34,6 +34,8 @@
 
 }());
 
+// segment: best of all time
+
 (function createTotalScoreKey() {
     participants.forEach(char => {
         char.totalScore = 0;            // Creates totalScore key in every participant's object
@@ -59,6 +61,9 @@ function createDatasetForCoords(placement) {
     for (i = 0; i <= 9; i++) {
         dataset.push({"year": i, "score": `${findTopFiveOAT(participants)[placement].totalScorePerSeason[`year${i}`]}`});
     }
-    console.log(dataset);
+    return dataset;
+}
+
+function sortBySeasonScore(participants, patchId) {
     
 }
