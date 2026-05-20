@@ -75,7 +75,7 @@ document.getElementById("pickMapButton").addEventListener("click", () => {
     const selectedLocation = locations[currentSlide];
 
     currentSelections.location = selectedLocation.id;
-
+    
     console.log(currentSelections);
 
 
@@ -86,6 +86,8 @@ document.getElementById("pickMapButton").addEventListener("click", () => {
     document.getElementById("pickMapButton").style.display = "none"
     document.getElementById("lollipopGraph").style.display = "block";
     document.getElementById("footerNav").style.display = "flex";
+    renderLollipopGraph ()
+
 
 
     console.log(selectedMap);
@@ -244,7 +246,78 @@ function getParticipantTotals() {
 function renderLollipopGraph() {
 
 
+    const container = document.getElementById("lollipopGraph");
+    const margin = {top: 50, right: 30, bottom: 90, left: 40};
+    const width = container.clientWidth - margin.left - margin.right;
+    const height = container.clientHeight - margin.top - margin.bottom;
+    const data = getParticipantTotals()
+    const maxPoints = data.toSorted((a, b) => b.total - a.total);
+    const finalPoints = maxPoints[0].total;
+
+    
+    d3.select("#lollipopGraph svg").remove();
+
+    const svg = d3.select("#lollipopGraph")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .style("display", "block");
+
+
+    const xAxis = d3.scaleBand()
+    .range([0, width])
+    .domain(data.map(x => x.name))
+    .padding(1);
+    
+
+    svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
+    .call(d3.axisBottom(xAxis))
+    .selectAll("text")
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
+
+    const yAxis = d3.scaleLinear()
+    .domain([0 , finalPoints])
+    .range([height + margin.top, margin.top]);
+        
+    svg.append("g")
+    .attr("transform", `translate(${margin.left})`)
+    .call(d3.axisLeft(yAxis));
+
+
+    svg.selectAll("myLine")
+    .data(data)
+    .enter()
+    .append("line")
+    .attr("x1", d => xAxis(d.name) + margin.left)
+    .attr("x2", d => xAxis(d.name) + margin.left)
+    .attr("y1", d => yAxis(d.total) )
+    .attr("y2", yAxis(0))
+    .attr("stroke", "white");
+
+    svg.selectAll("mycircle") 
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("cx", d => xAxis(d.name) + margin.left)
+    .attr("cy", d => yAxis(d.total))
+    .attr("r", "4")
+    .style("fill", "red")
+    .attr("stroke", "black")
+
+    svg.selectAll("path")
+    .attr("stroke", "white");
+
+    svg.selectAll("line")
+    .attr("stroke", "white");
+
+    svg.selectAll("text")
+    .style("fill", "white")
+
+
 
 }
 
-renderLollipopGraph ()
+
+
