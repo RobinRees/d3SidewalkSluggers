@@ -1,3 +1,5 @@
+const { max } = require("pg/lib/defaults");
+
 const characterSelectButton = document.getElementById("characterSelectButton");
 const mapSelectButton = document.getElementById("mapSelectButton");
 const leaderboardButton = document.getElementById("leaderboardButton")
@@ -155,40 +157,91 @@ renderRandomPlayerTwo();
 //BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW ALLT HÄR KOMMER TAS BORT
 
 function renderStats(participant) {
+    calculateStats();
 
+    const S01ParticipantPerformance = participants.map(p => p.stats.S01);
+    const S01BestPerformance = Math.max(...S01ParticipantPerformance);
+
+    const S02ParticipantPerformance = participants.map(p => p.stats.S02);
+    const S02BestPerformance = Math.max(...S02ParticipantPerformance);
+
+    const S03ParticipantPerformance = participants.map(p => p.stats.S03);
+    const S03BestPerformance = Math.max(...S03ParticipantPerformance);
+
+    const S04ParticipantPerformance = participants.map(p => p.stats.S04);
+    const S04BestPerformance = Math.max(...S04ParticipantPerformance);
+
+    const S05ParticipantPerformance = participants.map(p => p.stats.S05);
+    const S05BestPerformance = Math.max(...S05ParticipantPerformance);
     
     const stats = [
         {
             name: "Strength",
             value: participant.stats.S01,
+            max: S01BestPerformance,
             color: "red"
         },
 
         {
             name: "Speed",
             value: participant.stats.S02,
+            max: S02BestPerformance,
             color: "cyan"
         },
 
         {
             name: "Defense",
             value: participant.stats.S03,
+            max: S03BestPerformance,
             color: "lime"
         },
 
         {
             name: "Magic",
             value: participant.stats.S04,
+            max: S04BestPerformance,
             color: "purple"
         },
 
         {
             name: "Luck",
             value: participant.stats.S05,
+            max: S05BestPerformance,
             color: "gold"
         }
     ];
 
+    const container = document.getElementById("statsP1");
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    const data = stats;
+
+    console.log(S01ParticipantPerformance);
+    console.log(S01BestPerformance);
+    console.log(participants);
+
+    let svg = d3.select("#p1BarChart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+
+    const xScale = d3.scaleLinear()
+        .domain([0, d.max])
+        .range([0, 10])
+
+    svg.selectAll("bar")
+        .data(data)
+        .join("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", xScale(d => d.max))
+        .attr("height", "30px")
+        .attr("fill", d => d.color)
+
+        console.log(data);
+        
+
+    /* 
     const statsContainer = document.getElementById("statsP1");
 
     statsContainer.innerHTML = "";
@@ -235,6 +288,7 @@ function renderStats(participant) {
         statsContainer.appendChild(row);
     });
     console.log(stats);
+    */
 }
 
 

@@ -152,8 +152,13 @@ main > div:nth-child(3){
 
 /* STATS */
 
-#statsP1,
-#statsP2{
+#statsP1 {
+    height: 300px;
+    width: 200px;
+}
+
+.statRow,
+#statBoxP2 .statRow{
     display:flex;
 
     justify-content:center;
@@ -171,15 +176,6 @@ main > div:nth-child(3){
 
     min-width:0;
     min-height:0;
-}
-
-#statsP1{
-    display:none;
-}
-
-.statRow,
-#statBoxP2 .statRow{
-    display:flex;
     align-items:center;
     gap:4px;
 
