@@ -1,5 +1,3 @@
-const { max } = require("pg/lib/defaults");
-
 const characterSelectButton = document.getElementById("characterSelectButton");
 const mapSelectButton = document.getElementById("mapSelectButton");
 const leaderboardButton = document.getElementById("leaderboardButton")
