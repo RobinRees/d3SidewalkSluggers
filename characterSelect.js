@@ -223,17 +223,19 @@ function renderStats(participant) {
         .attr("width", width)
         .attr("height", height)
 
-    const xScale = d3.scaleLinear()
-        .domain([0, d.max])
-        .range([0, 10])
-
     svg.selectAll("bar")
         .data(data)
         .join("rect")
         .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", xScale(d => d.max))
-        .attr("height", "30px")
+        .attr("y", (d, i) => i * 40)
+        .attr("width", d => {
+            const xScale = d3.scaleLinear()
+                .domain([0, d.max])
+                .range([0, 10])
+
+            return xScale(d.value);
+        })
+        .attr("height", 30)
         .attr("fill", d => d.color)
 
         console.log(data);
