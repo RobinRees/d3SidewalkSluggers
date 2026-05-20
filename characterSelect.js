@@ -125,7 +125,9 @@ function renderCharacterSelect(participants) {
                                 <div class="previewName">${p.displayName}</div>
                             </div>
 `;
-        renderStats() // TAS BORT SENARE
+        renderStats(p) // TAS BORT SENARE
+        
+
         document.getElementById("imgSpace").style.display = "block";
         }
     });
@@ -152,36 +154,37 @@ renderRandomPlayerTwo();
 
 //BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW ALLT HÄR KOMMER TAS BORT
 
-function renderStats() {
+function renderStats(participant) {
 
+    
     const stats = [
         {
             name: "Strength",
-            value: Math.floor(Math.random() * 10) + 1,
+            value: participant.stats.S01,
             color: "red"
         },
 
         {
             name: "Speed",
-            value: Math.floor(Math.random() * 10) + 1,
+            value: participant.stats.S02,
             color: "cyan"
         },
 
         {
             name: "Defense",
-            value: Math.floor(Math.random() * 10) + 1,
+            value: participant.stats.S03,
             color: "lime"
         },
 
         {
             name: "Magic",
-            value: Math.floor(Math.random() * 10) + 1,
+            value: participant.stats.S04,
             color: "purple"
         },
 
         {
             name: "Luck",
-            value: Math.floor(Math.random() * 10) + 1,
+            value: participant.stats.S05,
             color: "gold"
         }
     ];
@@ -231,6 +234,7 @@ function renderStats() {
 
         statsContainer.appendChild(row);
     });
+    console.log(stats);
 }
 
 
@@ -310,6 +314,7 @@ row.appendChild(label);
 statsContainer2.appendChild(row);
 });
 }
+
 
 renderStatsp2() 
 
