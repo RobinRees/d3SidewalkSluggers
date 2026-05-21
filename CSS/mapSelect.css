@@ -227,3 +227,14 @@
         object-fit:contain
     }
 
+#tooltip {
+    position: absolute;
+    display: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    border: 1px solid white;
+    z-index: 9999999;
+}

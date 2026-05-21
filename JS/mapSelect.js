@@ -1,7 +1,7 @@
 const slides = document.querySelectorAll(".slide");
 const nextButton = document.getElementById("nextButton");
 const previousButton = document.getElementById("previousButton");
-
+const tooltip = document.getElementById("tooltip")
 
 let currentSlide = 0;
 
@@ -341,13 +341,27 @@ function renderLollipopGraph() {
     svg.selectAll("circle")
         .data(data, x => x.name)
         .join("circle")
+        .on("mouseover", (event, d) => {
+            tooltip.style.display = "block"
+            tooltip.innerHTML = `<strong>${d.name}</strong>
+            <br>
+            score: ${Math.round(d.total)}`        
+        })
+        .on("mousemove", event => {
+            tooltip.style.left = event.pageX +  "px";
+            tooltip.style.top = event.pageY + "px";
+        })
+        .on("mouseout", () => {
+            tooltip.style.display = "none";
+        })        
         .transition()
         .duration(500)
         .attr("cx", x => xAxis(x.name) + margin.left)
         .attr("cy", y => yAxis(y.total))
-        .attr("r", 4)
+        .attr("r", 6)
         .style("fill", "gold")
-        .attr("stroke", "black");
+        .attr("stroke", "black")
+        
 
 
     svg.selectAll("path")
