@@ -292,14 +292,16 @@ function renderLollipopGraph() {
     const maxPoints = data.toSorted((a, b) => b.total - a.total);
     const finalPoints = maxPoints[0].total;
 
-    
-    d3.select("#lollipopGraph svg").remove();
 
-    const svg = d3.select("#lollipopGraph")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .style("display", "block");
+    let svg = d3.select("#lollipopGraph svg");
+
+    if(svg.empty()) {
+        svg = d3.select("#lollipopGraph")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .style("display", "block")
+    }
 
 
     const xAxis = d3.scaleBand()
@@ -324,25 +326,29 @@ function renderLollipopGraph() {
     .call(d3.axisLeft(yAxis));
 
 
-    svg.selectAll("myLine")
-    .data(data)
-    .enter()
-    .append("line")
-    .attr("x1", d => xAxis(d.name) + margin.left)
-    .attr("x2", d => xAxis(d.name) + margin.left)
-    .attr("y1", d => yAxis(d.total) )
-    .attr("y2", yAxis(0))
-    .attr("stroke", "white");
+    svg.selectAll(".lollipop-line")
+        .data(data, x => x.name)
+        .join("line")    
+        .attr("class", "lollipop-line")
+        .transition()
+        .duration(500)
+        .attr("x1", x => xAxis(x.name) + margin.left)
+        .attr("x2", x => xAxis(x.name) + margin.left)
+        .attr("y1", y => yAxis(y.total))
+        .attr("y2", yAxis(0))
+        .attr("stroke", "white");
 
-    svg.selectAll("mycircle") 
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("cx", d => xAxis(d.name) + margin.left)
-    .attr("cy", d => yAxis(d.total))
-    .attr("r", "4")
-    .style("fill", "gold")
-    .attr("stroke", "black")
+    svg.selectAll("circle")
+        .data(data, x => x.name)
+        .join("circle")
+        .transition()
+        .duration(500)
+        .attr("cx", x => xAxis(x.name) + margin.left)
+        .attr("cy", y => yAxis(y.total))
+        .attr("r", 4)
+        .style("fill", "gold")
+        .attr("stroke", "black");
+
 
     svg.selectAll("path")
     .attr("stroke", "white");
