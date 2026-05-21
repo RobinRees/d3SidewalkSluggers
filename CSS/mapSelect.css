@@ -111,20 +111,48 @@
 
     #pickMapButton,
     #backButton{
-        padding:5px;
-        background-color:yellow;
-        color:black;
-        cursor:pointer;
+    width:180px;
+    padding:18px;
+    text-align:center;
+    color:gold;
+    font-weight:bold;
+    background:
+        linear-gradient(
+            180deg,
+            #1C2EC7 0%,
+            #10207D 45%,
+            #09114D 100%
+        );
+
+    border:2px solid #3550FF;
+    cursor:pointer;
+    transition:.2s;
     }
 
     #pickMapButton{
-        width:200px;
-        text-align:center;
+    width:180px;
+    padding:18px;
+    text-align:center;
+    color:gold;
+    font-weight:bold;
+    background:
+        linear-gradient(
+            180deg,
+            #1C2EC7 0%,
+            #10207D 45%,
+            #09114D 100%
+        );
+
+    border:2px solid #3550FF;
+    cursor:pointer;
+    transition:.2s;
     }
 
     #pickMapButton:hover,
     #backButton:hover{
-        background-color:white;
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 15px rgba(36,54,184,.6);
     }
 
 
@@ -169,13 +197,12 @@
 
     #patchGrid>div{
         padding:15px;
-        border:2px solid var(--borderBright);
-        background-color: var(--panelLight);
+        border: 2px solid var(--borderBright);
     }
 
     #patchGrid>div.selected, #footerNav>div.selected{
-        background-color:white;
-        color:blue;
+        background-color:gold;
+        color: var(--borderBright);
     }
 
 
@@ -204,16 +231,13 @@
     }
 
     #footerNav>div{
-        padding:5px;
-        cursor:pointer;
-
-        background-color: var(--panelLight);
-        border:2px solid var(--borderBright);
+        border: 2px solid var(--borderBright);
+        padding: 10px;
     }
 
-    #footerNav>div:hover{
-        background-color:white;
-        color:black;
+    #footerNav>div:hover, #patchGrid>div:hover{
+        background-color:gold;
+        color: var(--borderBright);
     }
 
     #lollipopGraph{
