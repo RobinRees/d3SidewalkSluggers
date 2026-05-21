@@ -125,7 +125,7 @@ updateScoreboard("all");
 
 // segment: svg creation for Top Characters of All time
 
-function topFiveOATGraph() {
+(function topFiveOATGraph() {
     const graphContainer = document.querySelector("#graphContainer");
     const colorArray = ["#1BFF11", "#EB3410", "#2E78F0", "#F02ED9", "#F0B32E"]
 
@@ -196,6 +196,46 @@ function topFiveOATGraph() {
         charDiv.append(charNameP);
 
     }
-};
+}());
 
 topFiveOATGraph();
+
+function displayTopStatsPanel() {
+    const topStatsPanel = document.querySelector("#topStatsPanel");
+  
+    for (let i = 0; i <=1; i++) {
+        const statCard = document.createElement("div");
+        statCard.classList.add("topStatCard")
+
+        topStatsPanel.append(statCard);
+
+        const title = document.createElement("p");
+        const value = document.createElement("p");
+        const name = document.createElement("p");
+        const icon = document.createElement("img");
+
+        title.classList.add("topStatTitle");
+        value.classList.add("topStatValue");
+        name.classList.add("topStatPlayer");
+        icon.classList.add("topStatIcon");
+
+        statCard.append(title);
+        statCard.append(value);
+        statCard.append(name);
+        statCard.append(icon);
+
+        if (i === 0) {
+            title.textContent = "Highest Score In A Season";
+            value.textContent = findHighestScoreInASeason();
+            name.textContent = findHighestScoreInASeason().displayName;
+        } else {
+            title.textContent = "Highest Score Last Season";
+            value.textContent = findHighestScoreLastSeason();
+            
+        }
+    }
+
+    Array.from[topStatsPanel.children].forEach(card => {
+        
+    })
+}
