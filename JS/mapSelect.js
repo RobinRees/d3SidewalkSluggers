@@ -119,7 +119,7 @@ const patches = [
 ];
 
 const disciplineOptions = [
-    { id: "overall", name: "Overall" },
+    { id: "average", name: "Average" },
     { id: 1, name: "Discipline #1" },
     { id: 2, name: "Discipline #2" },
     { id: 3, name: "Discipline #3" },
@@ -130,7 +130,7 @@ const disciplineOptions = [
 const currentSelections = {
     location: null,
     patch: 9,
-    discipline: "overall"
+    discipline: "average"
 };
 
 const patchGrid = document.getElementById("patchGrid");
@@ -208,8 +208,9 @@ function getParticipantTotals() {
 
             day.events.forEach(event => {
 
+                // FILTER DISCIPLINE
                 if (
-                    currentSelections.discipline !== "overall" &&
+                    currentSelections.discipline !== "average" &&
                     event.disciplineId !== currentSelections.discipline
                 ) {
                     return;
@@ -217,11 +218,21 @@ function getParticipantTotals() {
 
                 event.scores.forEach(score => {
 
+                    // CREATE PLAYER
                     if (!totals[score.participantId]) {
-                        totals[score.participantId] = 0;
+
+                        totals[score.participantId] = {
+                            total: 0,
+                            count: 0
+                        };
+
                     }
 
-                    totals[score.participantId] += score.score;
+                    // ADD SCORE
+                    totals[score.participantId].total += score.score;
+
+                    // ADD COUNT
+                    totals[score.participantId].count++;
 
                 });
 
@@ -231,11 +242,38 @@ function getParticipantTotals() {
 
     });
 
+    // FINAL ARRAY
     const result = participants.map(participant => {
+
+        let finalScore = 0;
+
+        // PLAYER EXISTS
+        if (totals[participant.id]) {
+
+            // AVERAGE MODE
+            if (
+                currentSelections.discipline === "average"
+            ) {
+
+                finalScore =
+                    totals[participant.id].total /
+                    totals[participant.id].count;
+
+            }
+
+            // NORMAL TOTAL
+            else {
+
+                finalScore =
+                    totals[participant.id].total;
+
+            }
+
+        }
 
         return {
             name: participant.displayName,
-            total: totals[participant.id] || 0
+            total: finalScore
         };
 
     });
@@ -278,7 +316,7 @@ function renderLollipopGraph() {
     .style("text-anchor", "end");
 
     const yAxis = d3.scaleLinear()
-    .domain([0 , finalPoints])
+    .domain([0 , 16000])
     .range([height + margin.top, margin.top]);
         
     svg.append("g")
@@ -303,7 +341,7 @@ function renderLollipopGraph() {
     .attr("cx", d => xAxis(d.name) + margin.left)
     .attr("cy", d => yAxis(d.total))
     .attr("r", "4")
-    .style("fill", "red")
+    .style("fill", "gold")
     .attr("stroke", "black")
 
     svg.selectAll("path")

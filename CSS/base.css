@@ -2,105 +2,233 @@
     --bgDark:#040B37;
     --panelDark:#09114D;
     --panelLight:#131F73;
+
     --borderDark:#0B1971;
     --borderLight:#1B2A8F;
     --borderBright:#2436B8;
 }
 
-/* Reset */
 
-html,body{
-    height:100%;
-    margin:0;
+/* RESET */
+
+*{
+    box-sizing:border-box;
 }
 
-/* Layout */
+html,
+body{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+
+/* BODY */
 
 body{
     display:flex;
     flex-direction:column;
-    background-color: var(--bgDark);
+    background:
+        radial-gradient(
+            circle at top,
+            #0B1767 0%,
+            #040B37 45%,
+            #020628 100%
+        );
+
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    color:white;
 }
 
-body>h2 {
-    color: orange;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-size: 40px;
+
+/* TITLE */
+
+#title{
+    margin:10px 0 6px 0;
+    text-align:center;
+    color:gold;
+    font-size:42px;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    text-shadow:
+        0 0 15px rgba(255,215,0,.2);
 }
 
 
-/* Start Screen */
+/* START SCREEN */
 
 #startScreen{
     position:absolute;
+
     z-index:100;
+
     width:100%;
     height:100%;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background-color:black;
+    background:black;
 }
 
-#startButton{
-    width:150px;
-    padding:20px;
-    text-align:center;
-    background-color:white;
-}
 
-#startButton:hover{
-    background-color:rgb(156,150,150);
-}
+/* START SCREEN TITLE */
 
 #startText{
-    color:white;
+    color:gold;
+    font-size:64px;
+    margin-bottom:30px;
+    letter-spacing:3px;
+    text-transform:uppercase;
 }
 
 
+/* START BUTTON */
 
-/* Loading Bar */
+#startButton{
+    width:180px;
+    padding:18px;
+    text-align:center;
+    color:gold;
+    font-weight:bold;
+    background:
+        linear-gradient(
+            180deg,
+            #1C2EC7 0%,
+            #10207D 45%,
+            #09114D 100%
+        );
+
+    border:2px solid #3550FF;
+    cursor:pointer;
+    transition:.2s;
+}
+
+
+#startButton:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 15px rgba(36,54,184,.6);
+}
+
+
+/* LOADING BAR */
 
 #loadingContainer{
-    width:80%;
-    height:20px;
-    margin:20px auto;
-    background:#222;
-    border:2px solid white;
+    width:300px;
+    height:24px;
+    margin-top:25px;
+    background:#111;
+    border:2px solid #3550FF;
 }
+
 
 #loadingBar{
     width:0%;
     height:100%;
-    background:lime;
-    transition:width 0.2s;
+    background:
+        linear-gradient(
+            90deg,
+            gold,
+            orange
+        );
+    transition:width .2s;
 }
 
 
+/* HEADER */
 
-/* Navbar */
+header{
+
+    display:flex;
+    justify-content:center;
+
+    width:100%;
+
+    margin-top:4px;
+    margin-bottom:0;
+
+    padding:0;
+}
+
+
+/* NAVBAR */
 
 #navBar{
     display:flex;
-    justify-content:center;
-    gap:1vh;
-    padding:5px;
-    margin-top:30px;
-    background:var(--panelLight);
-    border: 2px solid var(--borderLight);
-    color: gold;
+    border:1px solid #3550FF;
+    border-radius:4px;
+    overflow:hidden;
+    background:
+        linear-gradient(
+            180deg,
+            #0D1B75 0%,
+            #09114D 100%
+        );
+    box-shadow:
+        0 0 12px rgba(36,54,184,.25);
 }
 
+
+/* NAV BUTTONS */
+
 #navBar div{
-    padding:10px;
-    background:var(--borderBright);
-    border:1px solid var(--borderDark);
+
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-width:190px;
+    height:48px;
+    padding:0 20px;
+    color:gold;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    cursor:pointer;
+    user-select:none;
+    border-right:1px solid #3550FF;
+    transition:
+        background .2s,
+        box-shadow .2s;
+}
+
+#navBar div:last-child{
+    border-right:none;
 }
 
 #navBar div:hover{
-    background:white;
-    color:black;
+    background:
+        linear-gradient(
+            180deg,
+            #1C2EC7 0%,
+            #10207D 100%
+        );
+
+    box-shadow:
+        inset 0 -2px 0 rgba(255,255,255,.08);
+}
+
+.activeNav{
+    background:
+        linear-gradient(
+            180deg,
+            #2D46FF 0%,
+            #1830B5 100%
+        );
+}
+
+
+.activeNav::after{
+    content:"";
+    position:absolute;
+    left:15%;
+    bottom:5px;
+    width:70%;
+    height:3px;
+    background:gold;
+    border-radius:2px;
 }

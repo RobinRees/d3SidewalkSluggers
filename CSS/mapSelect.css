@@ -1,229 +1,229 @@
-/* Map Select */
+    /* Map Select */
 
-#mapMain{
-    flex:1;
-    display:none;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    background-color:var(--bgDark);
-    border:2px solid var(--borderDark);
-}
-
-
-
-/* Carousel */
-
-#mapSelectionCarusel{
-    position:relative;
-    width:600px;
-    height:70vh;
-}
-
-.slide{
-    position:absolute;
-    top:30%;
-    left:50%;
-    width:400px;
-    height:300px;
-    opacity:0;
-    transition:all 0.3s ease;
-    transform:translate(-50%,-50%) scale(0.7);
-}
-
-.slide>img{
-    display:block;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.slide.active{
-    opacity:1;
-    z-index:3;
-    transform:translate(-50%,-50%) scale(1);
-}
-
-.slide.left{
-    opacity:0.4;
-    z-index:2;
-    transform:translate(-130%,-50%) scale(0.8);
-}
-
-.slide.right{
-    opacity:0.4;
-    z-index:2;
-    transform:translate(30%,-50%) scale(0.8);
-}
-
-.slide>p{
-    color:white;
-    text-align:center;
-}
+    #mapMain{
+        flex:1;
+        display:none;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+        background-color:var(--bgDark);
+        border:2px solid var(--borderDark);
+    }
 
 
 
-/* Karusell Buttons */
+    /* Carousel */
 
-.carouselButton{
-    position:absolute;
-    top:50%;
-    z-index:4;
-    transform:translateY(-50%);
-    background:none;
-    border:none;
-    color:white;
-    font-size:64px;
-    cursor:pointer;
-}
+    #mapSelectionCarusel{
+        position:relative;
+        width:600px;
+        height:70vh;
+    }
 
-.carouselButton:hover,
-.carouselButton:focus{
-    background-color:rgba(0,0,0,0.8);
-}
+    .slide{
+        position:absolute;
+        top:30%;
+        left:50%;
+        width:400px;
+        height:300px;
+        opacity:0;
+        transition:all 0.3s ease;
+        transform:translate(-50%,-50%) scale(0.7);
+    }
 
-.carouselButton:focus{
-    outline:1px solid black;
-}
+    .slide>img{
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
 
-#previousButton{
-    left:16px;
-}
+    .slide.active{
+        opacity:1;
+        z-index:3;
+        transform:translate(-50%,-50%) scale(1);
+    }
 
-#nextButton{
-    right:16px;
-}
+    .slide.left{
+        opacity:0.4;
+        z-index:2;
+        transform:translate(-130%,-50%) scale(0.8);
+    }
 
+    .slide.right{
+        opacity:0.4;
+        z-index:2;
+        transform:translate(30%,-50%) scale(0.8);
+    }
 
-
-/* Map Footer */
-
-.mapFooter{
-    width:99%;
-    background-color: var(--panelLight);
-    height:10vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border:2px solid var(--borderBright);
-}
-
-#pickMapButton,
-#backButton{
-    padding:5px;
-    background-color:yellow;
-    color:black;
-    cursor:pointer;
-}
-
-#pickMapButton{
-    width:200px;
-    text-align:center;
-}
-
-#pickMapButton:hover,
-#backButton:hover{
-    background-color:white;
-}
+    .slide>p{
+        color:white;
+        text-align:center;
+    }
 
 
 
-/* Picked Map Sidebar (Den som dyker upp när man trycker select)*/
+    /* Karusell Buttons */
 
-#pickedMapSidebar{
-    width:20vw;
-    height:100%;
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    color:white;
-    border:2px solid var(--borderDark);
-    background-color: var(--panelDark);
-}
+    .carouselButton{
+        position:absolute;
+        top:50%;
+        z-index:4;
+        transform:translateY(-50%);
+        background:none;
+        border:none;
+        color:white;
+        font-size:64px;
+        cursor:pointer;
+    }
 
-#pickedMapSidebarImgBox{
-    width:80%;
-    height:25%;
-    border:2px solid var(--borderDark);
-}
+    .carouselButton:hover,
+    .carouselButton:focus{
+        background-color:rgba(0,0,0,0.8);
+    }
 
-#pickedMapSidebarImgBox>img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 60%;
-}
+    .carouselButton:focus{
+        outline:1px solid black;
+    }
 
-#patchBox{
-    width:90%;
-    height:60%;
-    text-align:center;
-}
+    #previousButton{
+        left:16px;
+    }
 
-#patchGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    text-align:center;
-}
-
-#patchGrid>div{
-    padding:15px;
-    border:2px solid var(--borderBright);
-    background-color: var(--panelLight);
-}
-
-#patchGrid>div.selected, #footerNav>div.selected{
-    background-color:white;
-    color:blue;
-}
+    #nextButton{
+        right:16px;
+    }
 
 
 
-/* Active Footer (När man trycker på Select) (Den förstoras) */
+    /* Map Footer */
 
-#activeMapFooter{
-    height:100%;
-    align-items:baseline;
-    flex-direction:column;
-    background-color: var(--bgDark);
-    border: var(--borderDark) solid 2px;
-}
+    .mapFooter{
+        width:99%;
+        background-color: var(--panelLight);
+        height:10vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border:2px solid var(--borderBright);
+    }
 
-#footerNav{
-    
-    width:100%;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    gap:30px;
-    color:white;
-    background-color: var(--panelDark);
-    border:2px solid var(--borderDark);
-    border-left: none;
-}
+    #pickMapButton,
+    #backButton{
+        padding:5px;
+        background-color:yellow;
+        color:black;
+        cursor:pointer;
+    }
 
-#footerNav>div{
-    padding:5px;
-    cursor:pointer;
+    #pickMapButton{
+        width:200px;
+        text-align:center;
+    }
 
-    background-color: var(--panelLight);
-    border:2px solid var(--borderBright);
-}
+    #pickMapButton:hover,
+    #backButton:hover{
+        background-color:white;
+    }
 
-#footerNav>div:hover{
-    background-color:white;
-    color:black;
-}
 
-#lollipopGraph{
-    display:none;
-    width:100%;
-    height:100%;
-    text-align:center;
-}
 
-.fullscreenPreview img {
-    object-fit:contain
-}
+    /* Picked Map Sidebar (Den som dyker upp när man trycker select)*/
+
+    #pickedMapSidebar{
+        width:20vw;
+        height:100%;
+        display:none;
+        flex-direction:column;
+        align-items:center;
+        color:white;
+        border:2px solid var(--borderDark);
+        background-color: var(--panelDark);
+    }
+
+    #pickedMapSidebarImgBox{
+        width:80%;
+        height:25%;
+        border:2px solid var(--borderDark);
+    }
+
+    #pickedMapSidebarImgBox>img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center 60%;
+    }
+
+    #patchBox{
+        width:90%;
+        height:60%;
+        text-align:center;
+    }
+
+    #patchGrid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        text-align:center;
+    }
+
+    #patchGrid>div{
+        padding:15px;
+        border:2px solid var(--borderBright);
+        background-color: var(--panelLight);
+    }
+
+    #patchGrid>div.selected, #footerNav>div.selected{
+        background-color:white;
+        color:blue;
+    }
+
+
+
+    /* Active Footer (När man trycker på Select) (Den förstoras) */
+
+    #activeMapFooter{
+        height:100%;
+        align-items:baseline;
+        flex-direction:column;
+        background-color: var(--bgDark);
+        border: var(--borderDark) solid 2px;
+    }
+
+    #footerNav{
+        
+        width:100%;
+        display:none;
+        justify-content:center;
+        align-items:center;
+        gap:30px;
+        color:white;
+        background-color: var(--panelDark);
+        border:2px solid var(--borderDark);
+        border-left: none;
+    }
+
+    #footerNav>div{
+        padding:5px;
+        cursor:pointer;
+
+        background-color: var(--panelLight);
+        border:2px solid var(--borderBright);
+    }
+
+    #footerNav>div:hover{
+        background-color:white;
+        color:black;
+    }
+
+    #lollipopGraph{
+        display:none;
+        width:100%;
+        height:100%;
+        text-align:center;
+    }
+
+    .fullscreenPreview img {
+        object-fit:contain
+    }
 

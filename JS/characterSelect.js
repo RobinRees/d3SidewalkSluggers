@@ -6,6 +6,16 @@ const mapMain = document.getElementById("mapMain")
 const leaderboardMain = document.getElementById("leaderboardMain")
 const characterSelect = document.getElementById("characterSelect")
 
+function setActiveNav(activeButton){
+
+    characterSelectButton.classList.remove("activeNav");
+    mapSelectButton.classList.remove("activeNav");
+    leaderboardButton.classList.remove("activeNav");
+
+    activeButton.classList.add("activeNav");
+}
+
+
 /* Eventlisteners för knappar */
 
 mapSelectButton.addEventListener("click", () => {
@@ -13,6 +23,7 @@ mapSelectButton.addEventListener("click", () => {
     characterSelect.style.display = "none";
     mapMain.style.display = "flex";
     leaderboardMain.style.display = "none";
+    setActiveNav(mapSelectButton);
 
 })
 
@@ -21,6 +32,7 @@ characterSelectButton.addEventListener("click", () => {
     characterSelect.style.display = "grid";
     mapMain.style.display = "none";
     leaderboardMain.style.display = "none";
+    setActiveNav(characterSelectButton);
 
 })
 
@@ -29,6 +41,7 @@ leaderboardButton.addEventListener("click", () => {
     characterSelect.style.display = "none";
     mapMain.style.display = "none";
     leaderboardMain.style.display = "grid";
+    setActiveNav(leaderboardButton);
 
 });
 
