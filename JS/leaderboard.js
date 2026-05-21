@@ -7,88 +7,120 @@ const avrageScore = document.getElementById("selectedPlayerAverage");
 const playedMatches = document.getElementById("selectedPlayerMatches");
 
 const scoreboardRowContainer = document.querySelector("#leaderboardRows")
-
+const patchSelector = document.querySelector("#seasonSelect");
 
 // segment: patch selector
 
-const patchSelector = document.querySelector("#seasonSelect");
-const allTimeBtn = document.createElement("option");
-allTimeBtn.classList.add("patchOption");
-allTimeBtn.classList.add("selected");
-allTimeBtn.textContent = "All time";
-allTimeBtn.addEventListener("click", () => {
-    scoreboardRowContainer.innerHTML = "";
-    document.querySelectorAll(".patchOption")
-        .forEach(option => {
-            option.classList.remove("selected");
-        });
+const allTimeOption = document.createElement("option");
+allTimeOption.value = "all";
+allTimeOption.textContent = "All time";
+patchSelector.append(allTimeOption);
 
-    allTimeBtn.classList.add("selected");
-    if (allTimeBtn.classList.contains("selected")) updateScoreboard("All time")
+patches.forEach(patch => {
+    const option = document.createElement("option");
+
+    option.value = patch.id;
+    option.textContent = patch.name;
+
+    patchSelector.append(option);
 });
 
 
+// Selector listener
 
-patchSelector.append(allTimeBtn);
-patches.forEach(patch => {
-    const option = document.createElement("option");
-    patchSelector.append(option);
-    option.classList.add("patchOption")
-    option.textContent = patch.name;
-
-    option.addEventListener("click", () => {
-        scoreboardRowContainer.innerHTML = "";
-        document.querySelectorAll(".patchOption")
-            .forEach(option => {
-                option.classList.remove("selected");
-            });
-
-        option.classList.add("selected");
-        if (option.classList.contains("selected")) updateScoreboard(patch.id);
-    })
-})
-
-// segment: svg creation for Top Characters per Season
+patchSelector.addEventListener("change", (e) => {
+    updateScoreboard(e.target.value);
+});
 
 function updateScoreboard(patchId) {
-    
-    if (patchId === "All time") {
+
+    scoreboardRowContainer.innerHTML = "";
+
+    let topPlayers = [];
+
+    // All time
+    if (patchId === "all") {
+        topPlayers = findTopFiveOAT(participants);
+    }
+
+    // Specific patch
+    else {
+        topPlayers = findTopFiveByPatch(participants, patchId);
+    }
+
+    // In case of no data
+    if (topPlayers.length === 0) {
         for (let i = 0; i <= 4; i++) {
             const row = document.createElement("div");
             row.classList.add("highscoreRow");
+            row.innerHTML = `
+            <p class="participantPlacement"></p>
+
+            <img>
+
+            <p class="participantName">
+                No data
+            </p>
+
+            <p class="participantScore"></p>
+            `;
             scoreboardRowContainer.append(row);
-            
-            const placementNmr = document.createElement("p");
-            placementNmr.classList.add("participantPlacement");
-            placementNmr.textContent = "#" + (i + 1);
-            row.append(placementNmr);
-
-            const charImg = document.createElement("img");
-            charImg.classList.add("participantImage");
-            charImg.src = findTopFiveOAT(participants)[i].profilePicture;
-            row.append(charImg);
-
-            const charNameP = document.createElement("p");
-            charNameP.classList.add("participantName");
-            charNameP.textContent = findTopFiveOAT(participants)[i].displayName;
-            row.append(charNameP);
-
-            const charScoreP = document.createElement("p");
-            charScoreP.classList.add("participantScore");
-            charScoreP.textContent = findTopFiveOAT(participants)[i].totalScore;
-            row.append(charScoreP);
         }
+        return;
     }
 
+    // Render rows
+    topPlayers.forEach((player, index) => {
+        const row = document.createElement("div");
+        row.classList.add("highscoreRow");
+        console.log(patchId);
 
-    // patches.forEach(patch => {
-    //     if(patch.id == patchId) {
+        if (patchId === "all") {
+            row.innerHTML = `
+            <p class="participantPlacement">#${index + 1}</p>
 
-    //     }
-    // })
+            <img 
+                class="participantImage"
+                src="${player.profilePicture}"
+            >
+
+            <p class="participantName">
+                ${player.displayName}
+            </p>
+
+            <p class="participantScore">
+                ${player.totalScore}
+            </p>
+            `;
+            scoreboardRowContainer.append(row);
+        } else {
+            row.innerHTML = `
+            <p class="participantPlacement">#${index + 1}</p>
+
+            <img 
+                class="participantImage"
+                src="${player.profilePicture}"
+            >
+
+            <p class="participantName">
+                ${player.displayName}
+            </p>
+
+            <p class="participantScore">
+                ${player.totalScorePerSeason[`year${patchId}`]}
+            </p>
+            `;
+            scoreboardRowContainer.append(row);
+        }
+
+
+    });
+
+
 }
 
-updateScoreboard("All time");
+// Initial render
+updateScoreboard("all");
 
 
 // segment: svg creation for Top Characters of All time
@@ -113,7 +145,7 @@ function topFiveOATGraph() {
         .style("border", "2px solid var(--borderBright)");
 
     const xAxis = d3.axisBottom(xScale);
-    xAxis.tickValues([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    xAxis.tickValues([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     xAxis.tickFormat(d => `1.${d}`);
 
     d3.select("svg").append("g")
@@ -160,7 +192,7 @@ function topFiveOATGraph() {
         const charNameP = document.createElement("p");
         charNameP.textContent = `${findTopFiveOAT(participants)[i].displayName}`;
         charNameP.style.color = colorArray[i];
-        charNameP.style.fontSize = "16px";
+        charNameP.style.fontSize = "16rm";
         charDiv.append(charNameP);
 
     }

@@ -48,7 +48,7 @@
 }());
 
 function sortByTotalScore(participants) {               // When called returns whole participant array sorted by key totalScore
-    return participants.sort((a, b) => b.totalScore - a.totalScore)
+    return participants.toSorted((a, b) => b.totalScore - a.totalScore)
 }
 
 function findTopFiveOAT(participants) {                 // When called returns array of 5 participant objects which key totalScore is of highest number
@@ -59,11 +59,18 @@ function createDatasetForCoords(placement) {
     let dataset = [];
 
     for (i = 0; i <= 9; i++) {
-        dataset.push({"year": i, "score": `${findTopFiveOAT(participants)[placement].totalScorePerSeason[`year${i}`]}`});
+        dataset.push({ "year": i, "score": `${findTopFiveOAT(participants)[placement].totalScorePerSeason[`year${i}`]}` });
     }
     return dataset;
 }
 
-function sortBySeasonScore(participants, patchId) {
-    
+function findTopFiveByPatch(participants, patchId) {
+    if (patchId == 9) return [];
+    else {
+        console.log(patchId);
+    }
+
+    return participants.filter(char => char.totalScorePerSeason[`year${patchId}`] !== 0)
+        .toSorted((a, b) => b.totalScorePerSeason[`year${patchId}`] - a.totalScorePerSeason[`year${patchId}`])
+        .slice(0, 5)
 }
