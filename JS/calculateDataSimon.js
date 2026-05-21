@@ -66,11 +66,21 @@ function createDatasetForCoords(placement) {
 
 function findTopFiveByPatch(participants, patchId) {
     if (patchId == 9) return [];
-    else {
-        console.log(patchId);
-    }
 
     return participants.filter(char => char.totalScorePerSeason[`year${patchId}`] !== 0)
         .toSorted((a, b) => b.totalScorePerSeason[`year${patchId}`] - a.totalScorePerSeason[`year${patchId}`])
         .slice(0, 5)
+}
+
+function findHighestScoreInASeason() {
+    const topPlayerPerSeasons = [];
+    for (let i = 0; i <= 8; i++) {
+        topPlayerPerSeasons.push(findTopFiveByPatch(participants, i)[0]);
+    }
+
+    topPlayerPerSeasons.forEach(player => {
+        Object.entries(player.totalScorePerSeason).forEach((year, score) => {
+            
+        })
+    })
 }
