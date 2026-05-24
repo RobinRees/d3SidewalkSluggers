@@ -28,8 +28,7 @@ function calculateStatistics() {
                         participant.disciplineScores[discipline.name] = [];
                     }
                         
-                    participant.disciplineScores[discipline.name]
-                        .push(score.score);
+                    participant.disciplineScores[discipline.name].push(score.score);
                     
                 })
             })
