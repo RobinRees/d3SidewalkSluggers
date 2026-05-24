@@ -1,6 +1,6 @@
 function calculateStats() {
     participants.forEach(participant => {
-         participant.stats = {
+        participant.stats = {
             S01: 0,
             S02: 0,
             S03: 0,

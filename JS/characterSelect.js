@@ -138,7 +138,7 @@ function renderCharacterSelect(participants) {
                                 <div class="previewName">${p.displayName}</div>
                             </div>
 `;
-        renderStats() // TAS BORT SENARE
+        renderStats(p, "statsP1") // TAS BORT SENARE
         document.getElementById("imgSpace").style.display = "block";
         }
     });
@@ -158,13 +158,14 @@ function renderRandomPlayerTwo () {
                                 <div class="previewName">${participants[31].displayName}</div>
                             </div>
                           `
+    renderStats(participants[31], "statsP2")
 }
 
 renderRandomPlayerTwo();
 
 
 //BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW ALLT HÄR KOMMER TAS BORT
-
+/*
 function renderStats() {
 
     const stats = [
@@ -326,5 +327,89 @@ statsContainer2.appendChild(row);
 
 renderStatsp2() 
 
+*/
+function renderStats(participant, chartId) {
+
+    const container = document.getElementById(chartId);
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const S01ParticipantPerformance = participants.map(p => p.stats.S01);
+    const S01BestPerformance = Math.max(...S01ParticipantPerformance);
+
+    const S02ParticipantPerformance = participants.map(p => p.stats.S02);
+    const S02BestPerformance = Math.max(...S02ParticipantPerformance);
+
+    const S03ParticipantPerformance = participants.map(p => p.stats.S03);
+    const S03BestPerformance = Math.max(...S03ParticipantPerformance);
+
+    const S04ParticipantPerformance = participants.map(p => p.stats.S04);
+    const S04BestPerformance = Math.max(...S04ParticipantPerformance);
+
+    const S05ParticipantPerformance = participants.map(p => p.stats.S05);
+    const S05BestPerformance = Math.max(...S05ParticipantPerformance);
+    
+    const stats = [
+        {
+            name: "Strength",
+            value: participant.stats.S01,
+            max: S01BestPerformance,
+            color: "red"
+        },
+
+        {
+            name: "Speed",
+            value: participant.stats.S02,
+            max: S02BestPerformance,
+            color: "cyan"
+        },
+
+        {
+            name: "Defense",
+            value: participant.stats.S03,
+            max: S03BestPerformance,
+            color: "lime"
+        },
+
+        {
+            name: "Magic",
+            value: participant.stats.S04,
+            max: S04BestPerformance,
+            color: "purple"
+        },
+
+        {
+            name: "Luck",
+            value: participant.stats.S05,
+            max: S05BestPerformance,
+            color: "gold"
+        }
+    ];
+
+    console.log(S01ParticipantPerformance);
+    console.log(S01BestPerformance);
+    console.log(participants);
+
+    d3.select(`#${chartId}`).selectAll("*").remove();
+
+    const svg = d3.select(`#${chartId}`)
+        .attr("width", width)
+        .attr("height", height)
+
+    const xScale = d3.scaleLinear()
+        .domain([0, d3.max(stats, d => d.value)])
+        .range([0, width]);
+
+    svg.selectAll("rect")
+        .data(stats)
+        .join("rect")
+        .attr("x", 0)
+        .attr("y", (d, i) => i * 40)
+        .attr("width", d => xScale(d.value))
+        .attr("height", 30)
+        .attr("fill", d => d.color)
+
+        console.log(stats);
+}
 
 
