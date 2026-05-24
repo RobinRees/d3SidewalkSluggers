@@ -299,7 +299,7 @@ function updateRadarChart(participants) {
     }))
     console.log(data);
 
-    const maxValue = d3.max(Object.values(selectedPlayer.stats).concat(Object.values(randomPlayerTwo.stats)));
+    const maxValue = d3.max(Object.values(selectedPlayer.stats).concat(Object.values(randomPlayerTwo.stats))); // max value should be per max skill capacity
     console.log(maxValue);
 
     const rScale = d3.scaleLinear()
