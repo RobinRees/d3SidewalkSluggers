@@ -152,8 +152,7 @@ main > div:nth-child(3){
 
 /* STATS */
 
-#statsP1,
-#statsP2{
+.statsContainer{
     display:flex;
 
     justify-content:center;
@@ -165,7 +164,7 @@ main > div:nth-child(3){
 
     overflow:hidden;
 
-    flex-direction:column;
+    flex-direction:column;  
 
     gap:14px;
 
@@ -235,6 +234,7 @@ main > div:nth-child(3){
     min-height:0;
 }
 
-#imgSpace{
-    display:none;
+#radarChartContainer {
+    width: 100%;
+    height: 100%;
 }
