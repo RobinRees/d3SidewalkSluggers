@@ -331,9 +331,7 @@ renderStatsp2()
 function renderStats(participant, chartId) {
     
     const container = document.getElementById(chartId);
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-
+    
     const S01ParticipantPerformance = participants.map(p => p.stats.S01);
     const S01BestPerformance = Math.max(...S01ParticipantPerformance);
 
@@ -389,6 +387,15 @@ function renderStats(participant, chartId) {
     console.log(S01ParticipantPerformance);
     console.log(S01BestPerformance);
     console.log(participants);
+
+    const width = container.clientWidth;
+    console.log(container);
+    
+    const barHeight = 30;
+    const gap = 10;
+    const padding = 20;
+
+    const height = stats.length * (barHeight + gap + padding);
 
     d3.select(`#${chartId}`).selectAll("*").remove();
 

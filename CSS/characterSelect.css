@@ -152,8 +152,7 @@ main > div:nth-child(3){
 
 /* STATS */
 
-#statsP1,
-#statsP2{
+.statsContainer{
     display:flex;
 
     justify-content:center;
