@@ -45,112 +45,117 @@ leaderboardButton.addEventListener("click", () => {
 
 });
 
+let selectedPlayer = null;
+let randomPlayerTwo = null;
+
 /* Funktion för att pre-loada bilderna för folk som inte varit inne på sidan. */
 
 const loadingBar = document.getElementById("loadingBar");
 
 document.getElementById("startButton").addEventListener("click", () => {
-  const startScreen = document.getElementById("startScreen");
+    const startScreen = document.getElementById("startScreen");
 
-  let loaded = 0;
-  const allImages = [];
+    let loaded = 0;
+    const allImages = [];
 
-  participants.forEach(p => {
-    if (p.profilePicture) allImages.push(p.profilePicture);
-    if (p.fullImage) allImages.push(p.fullImage);
-  });
+    participants.forEach(p => {
+        if (p.profilePicture) allImages.push(p.profilePicture);
+        if (p.fullImage) allImages.push(p.fullImage);
+    });
 
-  const total = allImages.length;
+    const total = allImages.length;
 
-  allImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
+    allImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
 
-    // Detta betyder att om bilden inte laddas så kommer vi ändå vidare.
-    img.onload = img.onerror = () => {
-      loaded++;
+        // Detta betyder att om bilden inte laddas så kommer vi ändå vidare.
+        img.onload = img.onerror = () => {
+        loaded++;
 
-      //För loadingbar. 
-      const progress = loaded / total;
-      loadingBar.style.width = (progress * 100) + "%";
+        //För loadingbar. 
+        const progress = loaded / total;
+        loadingBar.style.width = (progress * 100) + "%";
 
-      if (loaded === total) {
-        startScreen.style.display = "none";
-      }
-    };
-  });
+        if (loaded === total) {
+            startScreen.style.display = "none";
+        }
+        };
+    });
 });
 
 function renderCharacterSelect(participants) {
-  const container = document.getElementById("characterSelect");
-  const preview = document.getElementById("characterFullP1");
+    const container = document.getElementById("characterSelect");
+    const preview = document.getElementById("characterFullP1");
 
-  let selectedCell = null;
-  let lockedCharacter = false;
+    let selectedCell = null;
+    let lockedCharacter = false;
 
-  participants.forEach((p) => {
-    const cell = document.createElement("div");
-    cell.classList.add("characterCell");
+    participants.forEach((p) => {
+        const cell = document.createElement("div");
+        cell.classList.add("characterCell");
 
-    if (p.profilePicture) {
-        const img = document.createElement("img");
-        img.src = p.profilePicture;
-        cell.appendChild(img);
-    }
-
-    /* när man hovrar en karaktär */
-    cell.addEventListener("mouseenter", () => {
-        if (lockedCharacter) return;
-
-        preview.innerHTML = `
-                            <div class="previewWrapper fullscreenPreview">
-                                <img src="${p.fullImage}">
-                                <div class="previewName">${p.displayName}</div>
-                            </div>
-`;
-    });
-
-    /* bara för att tömma efter man hovrar och inte valt någon */
-    cell.addEventListener("mouseleave", () => {
-        if (lockedCharacter) return;
-
-        preview.innerHTML = "";
-    })
-
-
-    /* för att locka in */
-    cell.addEventListener("click", () => {
-        document.getElementById("playerOne").classList.add("selected");
-        document.getElementById("statsP1").style.display = "flex";
-
-        if (selectedCell) {
-            selectedCell.style.border = "";
+        if (p.profilePicture) {
+            const img = document.createElement("img");
+            img.src = p.profilePicture;
+            cell.appendChild(img);
         }
 
-        selectedCell = cell;
-        lockedCharacter = true;
+        /* när man hovrar en karaktär */
+            cell.addEventListener("mouseenter", () => {
+                if (lockedCharacter) return;
 
-        cell.style.border = "5px solid blue";
-        if (p.fullImage) {
-        preview.innerHTML = `
-                            <div class="previewWrapper">
-                                <img src="${p.fullImage}">
-                                <div class="previewName">${p.displayName}</div>
-                            </div>
-`;
-        renderStats(p, "statsP1") // TAS BORT SENARE
-        document.getElementById("imgSpace").style.display = "block";
-        }
+                preview.innerHTML = `
+                                    <div class="previewWrapper fullscreenPreview">
+                                        <img src="${p.fullImage}">
+                                        <div class="previewName">${p.displayName}</div>
+                                    </div>
+                `;
+        });
+
+        /* bara för att tömma efter man hovrar och inte valt någon */
+        cell.addEventListener("mouseleave", () => {
+            if (lockedCharacter) return;
+
+            preview.innerHTML = "";
+        })
+
+
+        /* för att locka in */
+        cell.addEventListener("click", () => {
+            selectedPlayer = p;
+            document.getElementById("playerOne").classList.add("selected");
+            document.getElementById("statsP1").style.display = "flex";
+
+            if (selectedCell) {
+                selectedCell.style.border = "";
+            }
+
+            selectedCell = cell;
+            lockedCharacter = true;
+
+            cell.style.border = "5px solid blue";
+            if (p.fullImage) {
+                preview.innerHTML = `
+                                <div class="previewWrapper">
+                                    <img src="${p.fullImage}">
+                                    <div class="previewName">${p.displayName}</div>
+                                </div>
+            `;
+            }
+
+            renderStats(p, "statsP1")
+            updateRadarChart();
+        });
+
+        container.appendChild(cell);
     });
-
-
-    container.appendChild(cell);
-  });
 }
 
 renderCharacterSelect(participants);
 
 function renderRandomPlayerTwo () {
+    randomPlayerTwo = participants[31];
     const playerTwo = document.getElementById("characterFullP2");
     playerTwo.innerHTML = `
                           <div class="previewWrapperTwo">
@@ -164,170 +169,8 @@ function renderRandomPlayerTwo () {
 renderRandomPlayerTwo();
 
 
-//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW ALLT HÄR KOMMER TAS BORT
-/*
-function renderStats() {
+// Renders bars for both characters
 
-    const stats = [
-        {
-            name: "Strength",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "red"
-        },
-
-        {
-            name: "Speed",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "cyan"
-        },
-
-        {
-            name: "Defense",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "lime"
-        },
-
-        {
-            name: "Magic",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "purple"
-        },
-
-        {
-            name: "Luck",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "gold"
-        }
-    ];
-
-    const statsContainer = document.getElementById("statsP1");
-
-    statsContainer.innerHTML = "";
-
-    stats.forEach(stat => {
-
-
-        const row = document.createElement("div");
-        row.classList.add("statRow");
-
-
-        const label = document.createElement("p");
-
-        label.textContent = stat.name;
-
-
-        label.style.color = stat.color;
-
-        row.appendChild(label);
-
-        const boxes = document.createElement("div");
-        boxes.classList.add("statBoxes");
-
-
-        for (let i = 0; i < 10; i++) {
-
-            const box = document.createElement("div");
-
-
-            box.style.borderColor = stat.color;
-
-            if (i < stat.value) {
-
-                box.classList.add("filled");
-
-                box.style.backgroundColor = stat.color;
-            }
-
-            boxes.appendChild(box);
-        }
-
-        row.appendChild(boxes);
-
-        statsContainer.appendChild(row);
-    });
-}
-
-
-function renderStatsp2() {
-
-    const stats = [
-        {
-            name: "Strength",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "red"
-        },
-
-        {
-            name: "Speed",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "cyan"
-        },
-
-        {
-            name: "Defense",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "lime"
-        },
-
-        {
-            name: "Magic",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "purple"
-        },
-
-        {
-            name: "Luck",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "gold"
-        }
-    ];
-
-  const statsContainer2 = document.getElementById("statsP2");
-
-    statsContainer2.innerHTML = "";
-
-    stats.forEach(stat => {
-
-    const row = document.createElement("div");
-    row.classList.add("statRow");
-
-    const label = document.createElement("p");
-
-    label.textContent = stat.name;
-
-    label.style.color = stat.color;
-
-    const boxes = document.createElement("div");
-    boxes.classList.add("statBoxes");
-
-    for (let i = 0; i < 10; i++) {
-
-        const box = document.createElement("div");
-
-        box.style.borderColor = stat.color;
-
-        if (i >= 10 - stat.value) {
-
-            box.classList.add("filled");
-
-            box.style.backgroundColor = stat.color;
-        }
-
-    boxes.appendChild(box);
-}
-
-// P2 = BOXES FÖRST
-row.appendChild(boxes);
-
-row.appendChild(label);
-
-statsContainer2.appendChild(row);
-});
-}
-
-renderStatsp2() 
-
-*/
 function renderStats(participant, chartId) {
     
     const container = document.getElementById(chartId);
@@ -420,4 +263,108 @@ function renderStats(participant, chartId) {
         console.log(stats);
 }
 
-// nästa steg skala korrekt här (ska skalar mot andras skills också, inte bara ens egna)
+
+// Renders the radarchart comparing the two characters
+
+function updateRadarChart(participants) {
+
+    if (!selectedPlayer || !randomPlayerTwo) return;
+
+    const radarChartContainer = document.querySelector("#radarChartContainer");
+    const width = radarChartContainer.clientWidth;
+    const height = radarChartContainer.clientHeight;
+
+    const axes = ["S01", "S02", "S03", "S04", "S05"];
+    const labels = ["Strength", "Speed", "Defense", "Magic", "Luck"];
+
+    const radius = Math.min(width, height) / 2 - 60;
+    const angleSlice = (Math.PI * 2) / axes.length;
+    
+
+    d3.select(radarChartContainer).selectAll("*").remove();
+
+    const svg = d3.select(radarChartContainer)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+    const data = [selectedPlayer, randomPlayerTwo].map(p => ({ 
+        name: p.displayName,
+        values: axes.map(a => ({
+            axis: a,
+            value: p.stats[a]
+        }))
+    }))
+    console.log(data);
+
+    const maxValue = d3.max(Object.values(selectedPlayer.stats).concat(Object.values(randomPlayerTwo.stats)));
+    console.log(maxValue);
+
+    const rScale = d3.scaleLinear()
+        .domain([0, maxValue])
+        .range([0, radius])
+
+    // Background
+
+    const levels = 5;
+
+    for (let level = 1; level <= levels; level++) {
+        const r = (radius / levels) * level;
+
+            const points = axes.map((_, i) => {
+            const angle = i * angleSlice - Math.PI / 2;
+            return [ Math.cos(angle) * r, Math.sin(angle) * r ]
+        })
+
+        g.append("polygon")
+            .attr("points", points.map(p => p.join(",")).join(" "))
+            .attr("fille", "none")
+            .attr("stroker", "#333")
+            .attr("stroke-width", 1)
+    }
+
+    // Axes
+
+    axes.forEach((a, i) => {
+        const angle = i * angleSlice - Math.PI / 2;
+
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        g.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", x)
+        .attr("y2", y)
+        .attr("stroke", "#555")
+        .attr("stroke-width", 1);
+
+        g.append("text")
+            .attr("x", x * 1,1)
+            .attr("y", y * 1,1)
+            .attr("fill", "#ccc")
+            .attr("font-size", "12px")
+            .attr("text-anchor", "middle")
+            .text(labels[i])
+    })
+
+    // Players charts
+
+    const line = d3.line()
+        .x((d, i) => Math.cos(i * angleSlice - Math.PI / 2) * rScale(d.value))
+        .y((d, i) => Math.sin(i * angleSlice - Math.PI / 2) * rScale(d.value))
+
+    g.selectAll(".radar")
+        .data(data)
+        .join("path")
+        .attr("d", d => line(d.values))
+        .attr("fill", (d, i) => d3.schemeCategory10[i])
+        .attr("fill-opacity", 0.3)
+        .attr("stroke", (d, i) => d3.schemeCategory10[i])
+        .attr("stroke-width", 2);
+}
+
+updateRadarChart(participants);
