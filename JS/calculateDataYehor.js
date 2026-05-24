@@ -1,4 +1,4 @@
-function calculateStats() {
+function calculateStatistics() {
     participants.forEach(participant => {
         participant.stats = {
             S01: 0,
@@ -32,4 +32,4 @@ function calculateStats() {
     })
 }
 
-calculateStats();
+calculateStatistics();

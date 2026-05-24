@@ -329,7 +329,7 @@ renderStatsp2()
 
 */
 function renderStats(participant, chartId) {
-
+    
     const container = document.getElementById(chartId);
     const width = container.clientWidth;
     const height = container.clientHeight;
