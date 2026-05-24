@@ -12,7 +12,11 @@ function calculateStats() {
     seasons.forEach(season => {
         season.competitionDays.forEach(competitionDay => {
             competitionDay.events.forEach(event => {
-                const discipline 
+                const discipline = disciplines.find(discipline => 
+                    event.disciplineId === discipline.id
+                )
+
+                const 
             })
         })
     })
