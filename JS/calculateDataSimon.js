@@ -78,9 +78,28 @@ function findHighestScoreInASeason() {
         topPlayerPerSeasons.push(findTopFiveByPatch(participants, i)[0]);
     }
 
+    let seasonWithTopScore = undefined;
+    let topScoreInASeason = 0;
+
     topPlayerPerSeasons.forEach(player => {
-        Object.entries(player.totalScorePerSeason).forEach((year, score) => {
-            
+        Object.entries(player.totalScorePerSeason).forEach(([year, score]) => {
+            if (score > topScoreInASeason) {
+                topScoreInASeason = score;
+                seasonWithTopScore = year;
+            }
         })
     })
+
+    console.log(seasonWithTopScore);
+    console.log(topScoreInASeason);
+    
+    
+
+    return {
+        player: topPlayerPerSeasons.filter(player => {
+            return player.totalScorePerSeason[seasonWithTopScore] === topScoreInASeason
+        }),
+        score: topScoreInASeason,
+        season: seasonWithTopScore
+    };
 }

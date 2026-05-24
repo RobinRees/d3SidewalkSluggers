@@ -73,8 +73,7 @@ function updateScoreboard(patchId) {
     topPlayers.forEach((player, index) => {
         const row = document.createElement("div");
         row.classList.add("highscoreRow");
-        console.log(patchId);
-
+        
         if (patchId === "all") {
             row.innerHTML = `
             <p class="participantPlacement">#${index + 1}</p>
@@ -162,8 +161,7 @@ updateScoreboard("all");
 
     for (let i = 0; i <= 4; i++) {
         let lineDataset = [createDatasetForCoords(i)];
-        console.log(lineDataset)
-
+        
         svg.append("g")
             .selectAll("rect")
             .data(lineDataset)
@@ -198,9 +196,7 @@ updateScoreboard("all");
     }
 }());
 
-topFiveOATGraph();
-
-function displayTopStatsPanel() {
+(function displayTopStatsPanel() {
     const topStatsPanel = document.querySelector("#topStatsPanel");
   
     for (let i = 0; i <=1; i++) {
@@ -225,17 +221,22 @@ function displayTopStatsPanel() {
         statCard.append(icon);
 
         if (i === 0) {
-            title.textContent = "Highest Score In A Season";
-            value.textContent = findHighestScoreInASeason();
-            name.textContent = findHighestScoreInASeason().displayName;
-        } else {
-            title.textContent = "Highest Score Last Season";
-            value.textContent = findHighestScoreLastSeason();
+            let player = findHighestScoreInASeason();
             
+
+            title.textContent = "Highest Score In A Season";
+            value.textContent = player.score;
+            name.textContent = player.player[0].displayName + `, Patch 1.${Number(player.season.slice(4)) + 1}`;
+            icon.src = player.player[0].profilePicture;
+            
+        } else {
+            let player = findTopFiveByPatch(participants, 8).slice(0, 1)
+            console.log(player);
+            
+            title.textContent = "Highest Score Last Season";
+            value.textContent = player[0].totalScorePerSeason.year8;
+            name.textContent = player[0].displayName;
+            icon.src = player[0].profilePicture;
         }
     }
-
-    Array.from[topStatsPanel.children].forEach(card => {
-        
-    })
-}
+}());
