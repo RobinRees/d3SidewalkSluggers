@@ -37,104 +37,102 @@ leaderboardButton.addEventListener("click", () => {
 const loadingBar = document.getElementById("loadingBar");
 
 document.getElementById("startButton").addEventListener("click", () => {
-  const startScreen = document.getElementById("startScreen");
+    const startScreen = document.getElementById("startScreen");
 
-  let loaded = 0;
-  const allImages = [];
+    let loaded = 0;
+    const allImages = [];
 
-  participants.forEach(p => {
-    if (p.profilePicture) allImages.push(p.profilePicture);
-    if (p.fullImage) allImages.push(p.fullImage);
-  });
+    participants.forEach(p => {
+        if (p.profilePicture) allImages.push(p.profilePicture);
+        if (p.fullImage) allImages.push(p.fullImage);
+    });
 
-  const total = allImages.length;
+    const total = allImages.length;
 
-  allImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
+    allImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
 
-    // Detta betyder att om bilden inte laddas så kommer vi ändå vidare.
-    img.onload = img.onerror = () => {
-      loaded++;
+        // Detta betyder att om bilden inte laddas så kommer vi ändå vidare.
+        img.onload = img.onerror = () => {
+            loaded++;
 
-      //För loadingbar. 
-      const progress = loaded / total;
-      loadingBar.style.width = (progress * 100) + "%";
+            //För loadingbar. 
+            const progress = loaded / total;
+            loadingBar.style.width = (progress * 100) + "%";
 
-      if (loaded === total) {
-        startScreen.style.display = "none";
-      }
-    };
-  });
+            if (loaded === total) {
+                startScreen.style.display = "none";
+            }
+        };
+    });
 });
 
 function renderCharacterSelect(participants) {
-  const container = document.getElementById("characterSelect");
-  const preview = document.getElementById("characterFullP1");
+    const container = document.getElementById("characterSelect");
+    const preview = document.getElementById("characterFullP1");
 
-  let selectedCell = null;
-  let lockedCharacter = false;
+    let selectedCell = null;
+    let lockedCharacter = false;
 
-  participants.forEach((p) => {
-    const cell = document.createElement("div");
-    cell.classList.add("characterCell");
+    participants.forEach((p) => {
+        const cell = document.createElement("div");
+        cell.classList.add("characterCell");
 
-    if (p.profilePicture) {
-        const img = document.createElement("img");
-        img.src = p.profilePicture;
-        cell.appendChild(img);
-    }
-
-    /* när man hovrar en karaktär */
-    cell.addEventListener("mouseenter", () => {
-        if (lockedCharacter) return;
-
-        preview.innerHTML = `
-                            <div class="previewWrapper fullscreenPreview">
-                                <img src="${p.fullImage}">
-                                <div class="previewName">${p.displayName}</div>
-                            </div>
-`;
-    });
-
-    /* bara för att tömma efter man hovrar och inte valt någon */
-    cell.addEventListener("mouseleave", () => {
-        if (lockedCharacter) return;
-
-        preview.innerHTML = "";
-    })
-
-
-    /* för att locka in */
-    cell.addEventListener("click", () => {
-        document.getElementById("playerOne").classList.add("selected");
-        document.getElementById("statsP1").style.display = "flex";
-
-        if (selectedCell) {
-            selectedCell.style.border = "";
+        if (p.profilePicture) {
+            const img = document.createElement("img");
+            img.src = p.profilePicture;
+            cell.appendChild(img);
         }
 
-        selectedCell = cell;
-        lockedCharacter = true;
+        /* när man hovrar en karaktär */
+        cell.addEventListener("mouseenter", () => {
+            if (lockedCharacter) return;
 
-        cell.style.border = "5px solid blue";
-        if (p.fullImage) {
-        preview.innerHTML = `
-                            <div class="previewWrapper">
-                                <img src="${p.fullImage}">
-                                <div class="previewName">${p.displayName}</div>
-                            </div>
-`;
-        renderStats(p) // TAS BORT SENARE
-        
+            preview.innerHTML = `
+                                <div class="previewWrapper fullscreenPreview">
+                                    <img src="${p.fullImage}">
+                                    <div class="previewName">${p.displayName}</div>
+                                </div>
+            `;
+        });
 
-        document.getElementById("imgSpace").style.display = "block";
-        }
-    });
+        /* bara för att tömma efter man hovrar och inte valt någon */
+        cell.addEventListener("mouseleave", () => {
+            if (lockedCharacter) return;
 
+            preview.innerHTML = "";
+        })
+
+
+        /* för att locka in */
+        cell.addEventListener("click", () => {
+            document.getElementById("playerOne").classList.add("selected");
+            document.getElementById("statsP1").style.display = "flex";
+
+            if (selectedCell) {
+                selectedCell.style.border = "";
+            }
+
+            selectedCell = cell;
+            lockedCharacter = true;
+
+            cell.style.border = "5px solid blue";
+            if (p.fullImage) {
+            preview.innerHTML = `
+                                <div class="previewWrapper">
+                                    <img src="${p.fullImage}">
+                                    <div class="previewName">${p.displayName}</div>
+                                </div>
+                                `;
+
+            renderStats(p, "statsP1") 
+            document.getElementById("imgSpace").style.display = "block";
+            }
+        });
 
     container.appendChild(cell);
-  });
+    });
 }
 
 renderCharacterSelect(participants);
@@ -147,15 +145,17 @@ function renderRandomPlayerTwo () {
                                 <div class="previewName">${participants[31].displayName}</div>
                             </div>
                           `
+    renderStats(participants[31], "statsP2");
 }
 
 renderRandomPlayerTwo();
 
 
-//BARA FÖR ATT GENERERA STATS, tas bort i framtiden. ONLY FOR SHOW ALLT HÄR KOMMER TAS BORT
+function renderStats(participant, chartId) {
 
-function renderStats(participant) {
-    calculateStats();
+    const container = document.getElementById(chartId);
+    const width = container.clientWidth;
+    const height = container.clientHeight;
 
     const S01ParticipantPerformance = participants.map(p => p.stats.S01);
     const S01BestPerformance = Math.max(...S01ParticipantPerformance);
@@ -209,168 +209,31 @@ function renderStats(participant) {
         }
     ];
 
-    const container = document.getElementById("statsP1");
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-    const data = stats;
-
     console.log(S01ParticipantPerformance);
     console.log(S01BestPerformance);
     console.log(participants);
 
-    let svg = d3.select(container)
-        .append("svg")
+    d3.select(`#${chartId}`).selectAll("*").remove();
+
+    const svg = d3.select(`#${chartId}`)
         .attr("width", width)
         .attr("height", height)
 
-    svg.selectAll("bar")
-        .data(data)
+    const xScale = d3.scaleLinear()
+        .domain([0, d3.max(stats, d => d.value)])
+        .range([0, width]);
+
+    svg.selectAll("rect")
+        .data(stats)
         .join("rect")
         .attr("x", 0)
         .attr("y", (d, i) => i * 40)
-        .attr("width", d => {
-            const xScale = d3.scaleLinear()
-                .domain([0, d.max])
-                .range([0, 200])
-
-            return xScale(d.value);
-        })
+        .attr("width", d => xScale(d.value))
         .attr("height", 30)
         .attr("fill", d => d.color)
 
-        console.log(data);
-        
-
-    /* 
-    const statsContainer = document.getElementById("statsP1");
-
-    statsContainer.innerHTML = "";
-
-    stats.forEach(stat => {
-
-
-        const row = document.createElement("div");
-        row.classList.add("statRow");
-
-
-        const label = document.createElement("p");
-
-        label.textContent = stat.name;
-
-
-        label.style.color = stat.color;
-
-        row.appendChild(label);
-
-        const boxes = document.createElement("div");
-        boxes.classList.add("statBoxes");
-
-
-        for (let i = 0; i < 10; i++) {
-
-            const box = document.createElement("div");
-
-
-            box.style.borderColor = stat.color;
-
-            if (i < stat.value) {
-
-                box.classList.add("filled");
-
-                box.style.backgroundColor = stat.color;
-            }
-
-            boxes.appendChild(box);
-        }
-
-        row.appendChild(boxes);
-
-        statsContainer.appendChild(row);
-    });
-    console.log(stats);
-    */
+        console.log(stats);
 }
 
 
-function renderStatsp2() {
-
-    const stats = [
-        {
-            name: "Strength",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "red"
-        },
-
-        {
-            name: "Speed",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "cyan"
-        },
-
-        {
-            name: "Defense",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "lime"
-        },
-
-        {
-            name: "Magic",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "purple"
-        },
-
-        {
-            name: "Luck",
-            value: Math.floor(Math.random() * 10) + 1,
-            color: "gold"
-        }
-    ];
-
-  const statsContainer2 = document.getElementById("statsP2");
-
-    statsContainer2.innerHTML = "";
-
-    stats.forEach(stat => {
-
-    const row = document.createElement("div");
-    row.classList.add("statRow");
-
-    const label = document.createElement("p");
-
-    label.textContent = stat.name;
-
-    label.style.color = stat.color;
-
-    const boxes = document.createElement("div");
-    boxes.classList.add("statBoxes");
-
-    for (let i = 0; i < 10; i++) {
-
-        const box = document.createElement("div");
-
-        box.style.borderColor = stat.color;
-
-        if (i >= 10 - stat.value) {
-
-            box.classList.add("filled");
-
-            box.style.backgroundColor = stat.color;
-        }
-
-    boxes.appendChild(box);
-}
-
-// P2 = BOXES FÖRST
-row.appendChild(boxes);
-
-row.appendChild(label);
-
-statsContainer2.appendChild(row);
-});
-}
-
-
-renderStatsp2() 
-
-
-
+    

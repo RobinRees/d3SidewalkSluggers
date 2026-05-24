@@ -149,75 +149,12 @@ main > div:nth-child(3){
 }
 
 
-
 /* STATS */
 
-#statsP1 {
+#statsP1, #statsP2 {
     height: 300px;
     width: 200px;
 }
-
-.statRow,
-#statBoxP2 .statRow{
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
-
-    box-sizing:border-box;
-
-    overflow:hidden;
-
-    flex-direction:column;
-
-    gap:14px;
-
-    min-width:0;
-    min-height:0;
-    align-items:center;
-    gap:4px;
-
-    font-size:1.2rem;
-}
-
-#statBoxP2 .statRow{
-    justify-content:flex-end;
-}
-
-.statBoxes,
-#statBoxP2 .statBoxes{
-    display:flex;
-    gap:4px;
-}
-
-.statRow p,
-#statBoxP2 .statRow p{
-    width:80px;
-    margin:0;
-
-    font-weight:bold;
-}
-
-#statBoxP2 .statRow p{
-    text-align:left;
-}
-
-.statBoxes div{
-    width:14px;
-    height:14px;
-
-    border:1px solid white;
-
-    background-color:transparent;
-}
-
-#statBoxP2 .statBoxes div{
-    width:18px;
-    height:18px;
-}
-
 
 
 /* VS SPACE */

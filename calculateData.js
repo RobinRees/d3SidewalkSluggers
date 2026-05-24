@@ -70,7 +70,6 @@ function totalScorePerSeason () {
 
 }
 
-calculateStats();
 
 totalScorePerSeason();
 
