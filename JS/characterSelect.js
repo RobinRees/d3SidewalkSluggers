@@ -402,17 +402,17 @@ function renderStats(participant, chartId) {
     const svg = d3.select(`#${chartId}`)
         .attr("width", width)
         .attr("height", height)
-
+    /*
     const xScale = d3.scaleLinear()
-        .domain([0, d3.max(stats, d => d.value)])
+        .domain([0, d3.max(stats, d => d.max)])
         .range([0, width]);
-
+    */
     svg.selectAll("rect")
         .data(stats)
         .join("rect")
         .attr("x", 0)
         .attr("y", (d, i) => i * 40)
-        .attr("width", d => xScale(d.value))
+        .attr("width", d => (d.value / d.max) * width)
 //      .attr("width", d => (d.value / d.max) * width)
         .attr("height", 30)
         .attr("fill", d => d.color)
