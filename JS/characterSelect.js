@@ -420,4 +420,4 @@ function renderStats(participant, chartId) {
         console.log(stats);
 }
 
-// nästa steg skala korrekt här
+// nästa steg skala korrekt här (ska skalar mot andras skills också, inte bara ens egna)
