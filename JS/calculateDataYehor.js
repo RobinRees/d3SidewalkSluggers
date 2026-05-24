@@ -9,6 +9,8 @@ function calculateStatistics() {
         }
     });
 
+    let gamesPlayed = 0;
+
     seasons.forEach(season => {
         season.competitionDays.forEach(competitionDay => {
             competitionDay.events.forEach(event => {
@@ -22,9 +24,10 @@ function calculateStatistics() {
                     );
 
                     const baseScore = score.score;
+                    gamesPlayed++;
                         
                     Object.entries(discipline.skillFactors).forEach(([skill, factor]) => {
-                        participant.stats[skill] += baseScore * factor;
+                        participant.stats[skill] += (baseScore * factor) / gamesPlayed;
                     });
                 })
             })
