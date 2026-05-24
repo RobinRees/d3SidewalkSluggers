@@ -32,4 +32,4 @@ function calculateStats() {
     })
 }
 
-console.log(calculateStats());
+calculateStats();
