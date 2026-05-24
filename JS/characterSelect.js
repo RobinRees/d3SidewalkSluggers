@@ -364,9 +364,9 @@ function updateRadarChart() {
         .data(data)
         .join("path")
         .attr("d", d => line(d.values))
-        .attr("fill", (d, i) => d3.schemeCategory10[i])
+        .attr("fill", (d, i) => i === 0 ? "orange" : "lightblue" )
         .attr("fill-opacity", 0.3)
-        .attr("stroke", (d, i) => d3.schemeCategory10[i])
+        .attr("stroke", (d, i) => i === 0 ? "orange" : "lightblue ")
         .attr("stroke-width", 2);
 }
 
