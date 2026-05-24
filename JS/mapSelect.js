@@ -208,7 +208,6 @@ function getParticipantTotals() {
 
             day.events.forEach(event => {
 
-                // FILTER DISCIPLINE
                 if (
                     currentSelections.discipline !== "average" &&
                     event.disciplineId !== currentSelections.discipline
@@ -218,7 +217,6 @@ function getParticipantTotals() {
 
                 event.scores.forEach(score => {
 
-                    // CREATE PLAYER
                     if (!totals[score.participantId]) {
 
                         totals[score.participantId] = {
@@ -228,10 +226,7 @@ function getParticipantTotals() {
 
                     }
 
-                    // ADD SCORE
                     totals[score.participantId].total += score.score;
-
-                    // ADD COUNT
                     totals[score.participantId].count++;
 
                 });
@@ -247,10 +242,8 @@ function getParticipantTotals() {
 
         let finalScore = 0;
 
-        // PLAYER EXISTS
         if (totals[participant.id]) {
 
-            // AVERAGE MODE
             if (
                 currentSelections.discipline === "average"
             ) {
@@ -261,7 +254,6 @@ function getParticipantTotals() {
 
             }
 
-            // NORMAL TOTAL
             else {
 
                 finalScore =
