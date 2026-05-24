@@ -20,8 +20,16 @@ function calculateStats() {
                     const participant = participants.find(participant =>
                         participant.id === score.participantId
                     );
+
+                    const baseScore = score.score;
+                        
+                    Object.entries(discipline.skillFactors).forEach(([skill, factor]) => {
+                        participant.stats[skill] += baseScore * factor;
+                    });
                 })
             })
         })
     })
 }
+
+console.log(calculateStats());
