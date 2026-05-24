@@ -232,7 +232,6 @@ function renderStats(participant, chartId) {
     console.log(participants);
 
     const width = container.clientWidth;
-    console.log(container);
     
     const barHeight = 30;
     const gap = 10;
