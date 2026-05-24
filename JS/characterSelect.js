@@ -413,10 +413,11 @@ function renderStats(participant, chartId) {
         .attr("x", 0)
         .attr("y", (d, i) => i * 40)
         .attr("width", d => xScale(d.value))
+//      .attr("width", d => (d.value / d.max) * width)
         .attr("height", 30)
         .attr("fill", d => d.color)
 
         console.log(stats);
 }
 
-
+// nästa steg skala korrekt här
