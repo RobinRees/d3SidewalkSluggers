@@ -265,7 +265,7 @@ function renderStats(participant, chartId) {
 
 // Renders the radarchart comparing the two characters
 
-function updateRadarChart(participants) {
+function updateRadarChart() {
 
     if (!selectedPlayer || !randomPlayerTwo) return;
 
@@ -290,20 +290,23 @@ function updateRadarChart(participants) {
     const g = svg.append("g")
         .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
+    const statMax = {};
+
+    axes.forEach(a => {
+        statMax[a] = d3.max(participants, p => p.stats[a])
+    })
+
     const data = [selectedPlayer, randomPlayerTwo].map(p => ({ 
         name: p.displayName,
         values: axes.map(a => ({
             axis: a,
-            value: p.stats[a]
+            value: p.stats[a] / statMax[a]
         }))
     }))
     console.log(data);
 
-    const maxValue = d3.max(Object.values(selectedPlayer.stats).concat(Object.values(randomPlayerTwo.stats))); // max value should be per max skill capacity
-    console.log(maxValue);
-
     const rScale = d3.scaleLinear()
-        .domain([0, maxValue])
+        .domain([0, 1])
         .range([0, radius])
 
     // Background
@@ -321,7 +324,7 @@ function updateRadarChart(participants) {
         g.append("polygon")
             .attr("points", points.map(p => p.join(",")).join(" "))
             .attr("fille", "none")
-            .attr("stroker", "#333")
+            .attr("stroke", "#333")
             .attr("stroke-width", 1)
     }
 
@@ -334,18 +337,18 @@ function updateRadarChart(participants) {
         const y = Math.sin(angle) * radius;
 
         g.append("line")
-        .attr("x1", 0)
-        .attr("y1", 0)
-        .attr("x2", x)
-        .attr("y2", y)
-        .attr("stroke", "#555")
-        .attr("stroke-width", 1);
+            .attr("x1", 0)
+            .attr("y1", 0)
+            .attr("x2", x)
+            .attr("y2", y)
+            .attr("stroke", "#555")
+            .attr("stroke-width", 1);
 
         g.append("text")
             .attr("x", x * 1,1)
             .attr("y", y * 1,1)
             .attr("fill", "#ccc")
-            .attr("font-size", "12px")
+            .attr("font-size", "16px")
             .attr("text-anchor", "middle")
             .text(labels[i])
     })
@@ -355,6 +358,7 @@ function updateRadarChart(participants) {
     const line = d3.line()
         .x((d, i) => Math.cos(i * angleSlice - Math.PI / 2) * rScale(d.value))
         .y((d, i) => Math.sin(i * angleSlice - Math.PI / 2) * rScale(d.value))
+        .curve(d3.curveLinearClosed);
 
     g.selectAll(".radar")
         .data(data)
@@ -366,4 +370,4 @@ function updateRadarChart(participants) {
         .attr("stroke-width", 2);
 }
 
-updateRadarChart(participants);
+updateRadarChart();
