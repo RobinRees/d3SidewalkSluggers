@@ -16,7 +16,11 @@ function calculateStats() {
                     event.disciplineId === discipline.id
                 )
 
-                const 
+                event.scores.forEach(score => {
+                    const participant = participants.find(participant =>
+                        participant.id === score.participantId
+                    );
+                })
             })
         })
     })
