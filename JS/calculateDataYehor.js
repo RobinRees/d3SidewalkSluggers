@@ -8,13 +8,7 @@ function calculateStatistics() {
             S05: 0
         }
 
-        participant.gamesPerDiscipline = {
-            S01: 0,
-            S02: 0,
-            S03: 0,
-            S04: 0,
-            S05: 0
-        }
+        participant.disciplineScores = {};
     });
 
 
@@ -22,7 +16,7 @@ function calculateStatistics() {
         season.competitionDays.forEach(competitionDay => {
             competitionDay.events.forEach(event => {
                 const discipline = disciplines.find(discipline => 
-                    event.disciplineId === discipline.id
+                   discipline.id === event.disciplineId
                 )
 
                 event.scores.forEach(score => {
@@ -30,24 +24,32 @@ function calculateStatistics() {
                         participant.id === score.participantId
                     );
 
-                    const baseScore = score.score;
+                    if (!participant.disciplineScores[discipline.name]) {
+                        participant.disciplineScores[discipline.name] = [];
+                    }
                         
-                    Object.entries(discipline.skillFactors).forEach(([skill, factor]) => {
-                        participant.stats[skill] += baseScore * factor;
-                        participant.gamesPerDiscipline[skill]++;
-                    });
+                    participant.disciplineScores[discipline.name]
+                        .push(score.score);
+                    
                 })
             })
         })
     })
 
     participants.forEach(participant => {
-        Object.keys(participant.stats).forEach(skill => {
-            const games = participant.gamesPerDiscipline[skill];
-            if (games > 0) {
-                participant.stats[skill] /= games;
-            }
+        disciplines.forEach(discipline => {
+            const scores = participant.disciplineScores[discipline.name];
+
+            if (!scores || scores.length === 0) return;
+
+            const meanScore = scores.reduce((sum, s) => sum + s, 0) / scores.length;
+
+            Object.entries(discipline.skillFactors).forEach(([skill, factor]) => {
+                participant.stats[skill] += meanScore * factor;
+            })
         })
+        console.log(participant.stats);
+            
     })
 }
 
