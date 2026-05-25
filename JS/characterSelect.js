@@ -261,15 +261,52 @@ function renderStats(participant, chartId) {
         .range([0, height])
         .padding(0.35)
 
+    // Bars som boxes
+    const defs = svg.append("defs");
+
+    const filter = defs.append("filter")
+        .attr("id", "drop-shadow")
+        .attr("height", "130%")
+
+    filter.append("feDropShadow")
+        .attr("dx", 2)
+        .attr("dy", 2)
+        .attr("stdDeviation", 3)
+        .attr("flood-color", "#000")
+        .attr("flood-opacity", 0.7)
+
+    const segments = 10;
+    const segmentWidth = width / segments - 4;
+
+    stats.forEach((stat, rowIndex) => {
+        const normalized = (stat.value - stat.min) / (stat.max - stat.min);
+        const filled = Math.round(normalized * segments);
+
+        for (let i = 0; i < segments; i++) {
+            svg.append("rect")
+                .attr("x", i * (segmentWidth + 4))
+                .attr("y", yScale(stat.name))
+                .attr("width", segmentWidth)
+                .attr("height", yScale.bandwidth())
+                .attr("filter", "url(#drop-shadow)")
+                .attr("stroke", "black")
+                .attr("stroke-width", 2)
+                .attr("inner-shadow", 2)
+                .attr("fill", i < filled ? stat.color : "grey")
+        }
+    })
+
+    // Bars som linjer
+    /*
     svg.selectAll("rect")
         .data(stats)
         .join("rect")
         .attr("x", 0)
         .attr("y", d => yScale(d.name))
         .attr("width", d => ((d.value - d.min) / (d.max - d.min)) * width)
-//      .attr("width", d => xScale(d.value))
         .attr("height", yScale.bandwidth())
         .attr("fill", d => d.color)
+    */
 
     svg.selectAll("text")
         .data(stats)
