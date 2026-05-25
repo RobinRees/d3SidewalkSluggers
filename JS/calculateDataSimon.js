@@ -65,7 +65,7 @@ function createDatasetForCoords(placement) {
 }
 
 function findTopFiveByPatch(participants, patchId) {
-    if (patchId == 9) return [];
+    // if (patchId == 9) return [];
 
     return participants.filter(char => char.totalScorePerSeason[`year${patchId}`] !== 0)
         .toSorted((a, b) => b.totalScorePerSeason[`year${patchId}`] - a.totalScorePerSeason[`year${patchId}`])

@@ -242,11 +242,11 @@ updateScoreboard("all");
             icon.src = player.player[0].profilePicture;
 
         } else {
-            let player = findTopFiveByPatch(participants, 8).slice(0, 1)
+            let player = findTopFiveByPatch(participants, 9).slice(0, 1)
             console.log(player);
 
             title.textContent = "Highest Score Last Season";
-            value.textContent = player[0].totalScorePerSeason.year8;
+            value.textContent = player[0].totalScorePerSeason.year9;
             name.textContent = player[0].displayName;
             icon.src = player[0].profilePicture;
         }
