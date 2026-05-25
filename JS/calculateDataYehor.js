@@ -1,6 +1,4 @@
 function calculateStatistics() {
-    // seasons[0] = {...seasons[0], competitionDays: seasons[0].competitionDays.filter((x, i) => i < 2)}
-    // const _seasons = [seasons[0]];
     participants.forEach(participant => {
         participant.stats = {
             S01: 0,

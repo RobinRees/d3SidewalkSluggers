@@ -155,15 +155,15 @@ function renderCharacterSelect(participants) {
 renderCharacterSelect(participants);
 
 function renderRandomPlayerTwo () {
-    randomPlayerTwo = participants[31];
+    randomPlayerTwo = participants[10];
     const playerTwo = document.getElementById("characterFullP2");
     playerTwo.innerHTML = `
                           <div class="previewWrapperTwo">
-                                <img src="${participants[31].fullImage}">
-                                <div class="previewName">${participants[31].displayName}</div>
+                                <img src="${participants[10].fullImage}">
+                                <div class="previewName">${participants[10].displayName}</div>
                             </div>
                           `
-    renderStats(participants[31], "statsP2")
+    renderStats(participants[10], "statsP2")
 }
 
 renderRandomPlayerTwo();
@@ -177,24 +177,30 @@ function renderStats(participant, chartId) {
     
     const S01ParticipantPerformance = participants.map(p => p.stats.S01);
     const S01BestPerformance = Math.max(...S01ParticipantPerformance);
+    const S01WorstPerformance = Math.min(...S01ParticipantPerformance);
 
     const S02ParticipantPerformance = participants.map(p => p.stats.S02);
     const S02BestPerformance = Math.max(...S02ParticipantPerformance);
+    const S02WorstPerformance = Math.min(...S02ParticipantPerformance);
 
     const S03ParticipantPerformance = participants.map(p => p.stats.S03);
     const S03BestPerformance = Math.max(...S03ParticipantPerformance);
+    const S03WorstPerformance = Math.min(...S03ParticipantPerformance);
 
     const S04ParticipantPerformance = participants.map(p => p.stats.S04);
     const S04BestPerformance = Math.max(...S04ParticipantPerformance);
+    const S04WorstPerformance = Math.min(...S04ParticipantPerformance);
 
     const S05ParticipantPerformance = participants.map(p => p.stats.S05);
     const S05BestPerformance = Math.max(...S05ParticipantPerformance);
+    const S05WorstPerformance = Math.min(...S05ParticipantPerformance);
     
     const stats = [
         {
             name: "Strength",
             value: participant.stats.S01,
             max: S01BestPerformance,
+            min: S01WorstPerformance,
             color: "red"
         },
 
@@ -202,6 +208,7 @@ function renderStats(participant, chartId) {
             name: "Speed",
             value: participant.stats.S02,
             max: S02BestPerformance,
+            min: S02WorstPerformance,
             color: "cyan"
         },
 
@@ -209,6 +216,7 @@ function renderStats(participant, chartId) {
             name: "Defense",
             value: participant.stats.S03,
             max: S03BestPerformance,
+            min: S03WorstPerformance,
             color: "lime"
         },
 
@@ -216,6 +224,7 @@ function renderStats(participant, chartId) {
             name: "Magic",
             value: participant.stats.S04,
             max: S04BestPerformance,
+            min: S04WorstPerformance,
             color: "purple"
         },
 
@@ -223,6 +232,7 @@ function renderStats(participant, chartId) {
             name: "Luck",
             value: participant.stats.S05,
             max: S05BestPerformance,
+            min: S05WorstPerformance,
             color: "gold"
         }
     ];
@@ -244,11 +254,6 @@ function renderStats(participant, chartId) {
     const svg = d3.select(`#${chartId}`)
         .attr("width", width)
         .attr("height", height)
-    /*
-    const xScale = d3.scaleLinear()
-        .domain([0, d3.max(stats, d => d.max)])
-        .range([0, width]);
-    */
 
     const yScale = d3.scaleBand()
         .domain(stats.map(d => d.name))
@@ -260,7 +265,7 @@ function renderStats(participant, chartId) {
         .join("rect")
         .attr("x", 0)
         .attr("y", d => yScale(d.name))
-        .attr("width", d => (d.value / d.max) * width)
+        .attr("width", d => ((d.value - d.min) / (d.max - d.min)) * width)
 //      .attr("width", d => xScale(d.value))
         .attr("height", yScale.bandwidth())
         .attr("fill", d => d.color)
