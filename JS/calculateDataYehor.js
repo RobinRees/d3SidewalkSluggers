@@ -14,12 +14,14 @@ function calculateStatistics() {
 
     seasons.forEach(season => {
         season.competitionDays.forEach(competitionDay => {
+            console.log(competitionDay.locationId);
             competitionDay.events.forEach(event => {
                 const discipline = disciplines.find(discipline => 
                    discipline.id === event.disciplineId
                 )
-
+                console.log(event.disciplineId);
                 event.scores.forEach(score => {
+                    
                     const participant = participants.find(participant =>
                         participant.id === score.participantId
                     );
@@ -27,13 +29,20 @@ function calculateStatistics() {
                     if (!participant.disciplineScores[discipline.name]) {
                         participant.disciplineScores[discipline.name] = [];
                     }
-                        
+                    
+                    
+                    console.log(participant.id, discipline.name, score.score);
+                    
                     participant.disciplineScores[discipline.name].push(score.score);
                     
                 })
             })
         })
     })
+    console.log(participants);
+    
+    
+    
 
     participants.forEach(participant => {
         disciplines.forEach(discipline => {
