@@ -249,15 +249,30 @@ function renderStats(participant, chartId) {
         .domain([0, d3.max(stats, d => d.max)])
         .range([0, width]);
     */
+
+    const yScale = d3.scaleBand()
+        .domain(stats.map(d => d.name))
+        .range([0, height])
+        .padding(0.35)
+
     svg.selectAll("rect")
         .data(stats)
         .join("rect")
         .attr("x", 0)
-        .attr("y", (d, i) => i * 40)
+        .attr("y", d => yScale(d.name))
         .attr("width", d => (d.value / d.max) * width)
 //      .attr("width", d => xScale(d.value))
-        .attr("height", 30)
+        .attr("height", yScale.bandwidth())
         .attr("fill", d => d.color)
+
+    svg.selectAll("text")
+        .data(stats)
+        .join("text")
+        .attr("x", 0)
+        .attr("y", d => yScale(d.name) - 5)
+        .attr("fill", d => d.color)
+        .attr("text-anchor", "start")
+        .text(d => d.name)
 
         console.log(stats);
 }
