@@ -144,8 +144,11 @@ updateScoreboard("all");
         .style("border", "2px solid var(--borderBright)");
 
     const xAxis = d3.axisBottom(xScale);
-    xAxis.tickValues([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    xAxis.tickFormat(d => `1.${d}`);
+    xAxis.tickValues([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    xAxis.tickFormat(d => {
+        if (d === 9) return "Current"
+        return `1.${d + 1}`
+    });
 
     svg.append("g")
         .call(xAxis)
