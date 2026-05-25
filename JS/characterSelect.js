@@ -155,15 +155,16 @@ function renderCharacterSelect(participants) {
 renderCharacterSelect(participants);
 
 function renderRandomPlayerTwo () {
-    randomPlayerTwo = participants[10];
+    const random = Math.floor(Math.random() * participants.length);
+    randomPlayerTwo = participants[random];
     const playerTwo = document.getElementById("characterFullP2");
     playerTwo.innerHTML = `
                           <div class="previewWrapperTwo">
-                                <img src="${participants[10].fullImage}">
-                                <div class="previewName">${participants[10].displayName}</div>
+                                <img src="${participants[random].fullImage}">
+                                <div class="previewName">${participants[random].displayName}</div>
                             </div>
                           `
-    renderStats(participants[10], "statsP2")
+    renderStats(participants[random], "statsP2")
 }
 
 renderRandomPlayerTwo();
