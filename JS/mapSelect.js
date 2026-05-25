@@ -105,6 +105,8 @@ document.getElementById("backButton").addEventListener("click", () => {
 
 })
 
+/* Robins kod */
+
 const patches = [
     { id: 0, name: "1.1" },
     { id: 1, name: "1.2" },
