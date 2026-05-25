@@ -1,5 +1,3 @@
-// Create totalScorePerSeason
-
 (function totalScorePerSeason() {
     participants.forEach(participant => {
         participant.totalScorePerSeason = {
@@ -34,24 +32,22 @@
 
 }());
 
-// segment: best of all time
-
 (function createTotalScoreKey() {
     participants.forEach(char => {
-        char.totalScore = 0;            // Creates totalScore key in every participant's object
-        let totalScore = 0;             // Variable to add every seasons score to
+        char.totalScore = 0;
+        let totalScore = 0;
         for (let i = 0; i <= 9; i++) {
-            totalScore += char.totalScorePerSeason[`year${i}`];         // Adds every seasons score to totalScore variable
+            totalScore += char.totalScorePerSeason[`year${i}`];
         }
-        char.totalScore = totalScore;   // Sets participants totalScore key to same value as totalScore variable
+        char.totalScore = totalScore;
     })
 }());
 
-function sortByTotalScore(participants) {               // When called returns whole participant array sorted by key totalScore
+function sortByTotalScore(participants) {
     return participants.toSorted((a, b) => b.totalScore - a.totalScore)
 }
 
-function findTopFiveOAT(participants) {                 // When called returns array of 5 participant objects which key totalScore is of highest number
+function findTopFiveOAT(participants) {
     return sortByTotalScore(participants).slice(0, 5)
 };
 
@@ -65,8 +61,6 @@ function createDatasetForCoords(placement) {
 }
 
 function findTopFiveByPatch(participants, patchId) {
-    // if (patchId == 9) return [];
-
     return participants.filter(char => char.totalScorePerSeason[`year${patchId}`] !== 0)
         .toSorted((a, b) => b.totalScorePerSeason[`year${patchId}`] - a.totalScorePerSeason[`year${patchId}`])
         .slice(0, 5)

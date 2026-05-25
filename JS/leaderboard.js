@@ -8,10 +8,9 @@ const playedMatches = document.getElementById("selectedPlayerMatches");
 
 const scoreboardRowContainer = document.querySelector("#leaderboardRows")
 const patchSelector = document.querySelector("#seasonSelect");
-
-// segment: patch selector
-
 const allTimeOption = document.createElement("option");
+
+
 allTimeOption.value = "all";
 allTimeOption.textContent = "All time";
 patchSelector.append(allTimeOption);
@@ -25,9 +24,6 @@ patches.forEach(patch => {
     patchSelector.append(option);
 });
 
-
-// Selector listener
-
 patchSelector.addEventListener("change", (e) => {
     updateScoreboard(e.target.value);
 });
@@ -38,17 +34,14 @@ function updateScoreboard(patchId) {
 
     let topPlayers = [];
 
-    // All time
     if (patchId === "all") {
         topPlayers = findTopFiveOAT(participants);
     }
 
-    // Specific patch
     else {
         topPlayers = findTopFiveByPatch(participants, patchId);
     }
 
-    // In case of no data
     if (topPlayers.length === 0) {
         for (let i = 0; i <= 4; i++) {
             const row = document.createElement("div");
@@ -69,7 +62,6 @@ function updateScoreboard(patchId) {
         return;
     }
 
-    // Render rows
     topPlayers.forEach((player, index) => {
         const row = document.createElement("div");
         row.classList.add("highscoreRow");
@@ -118,11 +110,9 @@ function updateScoreboard(patchId) {
 
 }
 
-// Initial render
 updateScoreboard("all");
 
 
-// segment: svg creation for Top Characters of All time
 
 (function topFiveOATGraph() {
     const graphContainer = document.querySelector("#graphContainer");
@@ -187,8 +177,7 @@ updateScoreboard("all");
             .attr("d", dMakerFunction)
     }
 
-    // characters in graph
-
+    
     const charContainer = document.querySelector("#charContainer");
 
     for (i = 0; i <= 4; i++) {
