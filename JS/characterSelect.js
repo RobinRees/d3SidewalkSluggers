@@ -306,16 +306,18 @@ function updateRadarChart() {
         .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
     const statMax = {};
+    const statMin = {};
 
     axes.forEach(a => {
         statMax[a] = d3.max(participants, p => p.stats[a])
+        statMin[a] = d3.min(participants, p => p.stats[a])
     })
 
     const data = [selectedPlayer, randomPlayerTwo].map(p => ({ 
         name: p.displayName,
         values: axes.map(a => ({
             axis: a,
-            value: p.stats[a] / statMax[a]
+            value: (p.stats[a] - statMin[a]) / (statMax[a] - statMin[a])
         }))
     }))
     console.log(data);
