@@ -34,7 +34,7 @@ function showSlide() {
 nextButton.addEventListener("click", () => {
 
     currentSlide++;
-
+ 
     if (currentSlide >= slides.length) {
         currentSlide = 0;
     }

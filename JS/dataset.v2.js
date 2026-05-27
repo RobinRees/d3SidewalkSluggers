@@ -90,243 +90,242 @@ const participants = [{
   "id": 148,
   "name": "P171",
   "displayName": "Adon",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/Adon_sairce.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/AdonFull_sa0man.png"
+  "profilePicture": "../Images/profilePicture/Adon.webp",
+  "fullImage": "../Images/fullProfile/adonFull.webp"
 }, {
   "id": 65,
   "name": "P030",
   "displayName": "Akuma",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/Akuma_nqqp2h.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/AkumaFull_alt8vy.png"
+  "profilePicture": "../Images/profilePicture/Akuma.webp",
+  "fullImage": "../Images/fullProfile/AkumaFull.webp"
 }, {
   "id": 189,
   "name": "P060",
   "displayName": "Balrog",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/Balrog_obuh1c.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/BalrogFull_g7iac2.png"
+  "profilePicture": "../Images/profilePicture/Balrog.webp",
+  "fullImage": "../Images/fullProfile/BalrogFull.webp"
 }, {
   "id": 268,
   "name": "P106",
   "displayName": "Blanka",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/Blanka_brwya6.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/BlankaFull_kuq9qc.png"
+  "profilePicture": "../Images/profilePicture/Blanka.webp",
+  "fullImage": "../Images/fullProfile/BlankaFull.webp"
 }, {
   "id": 180,
   "name": "P212",
   "displayName": "Cammy",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/Cammy_kmttxi.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003685/CammyFull_oklwk4.png"
+  "profilePicture": "../Images/profilePicture/Cammy.webp",
+  "fullImage": "../Images/fullProfile/CammyFull.webp"
 }, {
   "id": 296,
   "name": "P190",
   "displayName": "Charlie Nash",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/CharlieNash_euaevx.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003686/CharlieNashFull_xx6qb6.png"
+  "profilePicture": "../Images/profilePicture/CharlieNash.webp",
+  "fullImage": "../Images/fullProfile/CharlieNashFull.webp"
 }, {
   "id": 141,
   "name": "P181",
   "displayName": "Chun-li",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003659/Chun-li_nye1i5.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778006477/Chun-liFull3_v4cwz3.png"
+  "profilePicture": "../Images/profilePicture/Chun-li.webp",
+  "fullImage": "../Images/fullProfile/ChunLiFull.webp"
 }, {
   "id": 179,
   "name": "P154",
   "displayName": "Cody",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/Cody_vrsdwy.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003686/CodyFull_flxmly.png"
+  "profilePicture": "../Images/profilePicture/Cody.webp",
+  "fullImage": "../Images/fullProfile/CodyFull.webp"
 }, {
   "id": 76,
   "name": "P055",
   "displayName": "Dan",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/Dan_oizkl7.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003687/DanFull_zk1ozl.png"
+  "profilePicture": "../Images/profilePicture/Dan.webp",
+  "fullImage": "../Images/fullProfile/DanFull.webp"
 }, {
   "id": 173,
   "name": "P215",
   "displayName": "Dee Jay",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003657/DeeJay_mgueuo.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003687/DeeJayFull_e4iljx.png"
+  "profilePicture": "../Images/profilePicture/DeeJay.webp",
+  "fullImage": "../Images/fullProfile/DeeJayFull.webp"
 }, {
   "id": 214,
   "name": "P252",
   "displayName": "Dhalsim",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003658/Dhalsim_gd2bsm.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003687/DhalsimFull_cgecha.png"
+  "profilePicture": "../Images/profilePicture/Dhalsim.webp",
+  "fullImage": "../Images/fullProfile/DhalsimFull.webp"
 }, {
   "id": 169,
   "name": "P016",
   "displayName": "Dudley",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003659/Dudley_qnlpu5.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003688/DudleyFull_jgusdt.png"
+  "profilePicture": "../Images/profilePicture/Dudley.webp",
+  "fullImage": "../Images/fullProfile/DudleyFull.webp"
 }, {
   "id": 269,
   "name": "P247",
   "displayName": "E. Honda",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003659/Ehonda_ezylw1.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003687/EHondaFull_xgxwex.png"
+  "profilePicture": "../Images/profilePicture/EHonda.webp",
+  "fullImage": "../Images/fullProfile/EHondaFull.webp"
 }, {
   "id": 122,
   "name": "P240",
   "displayName": "Ellena",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003659/Ellena_jnjnuq.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003688/EllenaFull_fjrnek.png"
+  "profilePicture": "../Images/profilePicture/Ellena.webp",
+  "fullImage": "../Images/fullProfile/EllenaFull.webp"
 }, {
   "id": 58,
   "name": "P175",
   "displayName": "Fei-long",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003660/Fei-long_uj3it9.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003688/FeiLongfull_a79am5.png"
+  "profilePicture": "../Images/profilePicture/Fei-long.webp",
+  "fullImage": "../Images/fullProfile/FeiLongFull.webp"
 }, {
   "id": 270,
   "name": "P176",
   "displayName": "Gen",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003660/Gen_skudhu.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003688/GenFull_sxicwt.png"
+  "profilePicture": "../Images/profilePicture/Gen.webp",
+  "fullImage": "../Images/fullProfile/GenFull.webp"
 }, {
   "id": 206,
   "name": "P255",
   "displayName": "Gill",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003660/Gill_luvb8d.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003689/GillFull_nkwpxj.png"
+  "profilePicture": "../Images/profilePicture/Gill.webp",
+  "fullImage": "../Images/fullProfile/GillFull.webp"
 }, {
   "id": 150,
   "name": "P172",
   "displayName": "Gouki",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003660/Gouki_xuaqnm.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003689/GoukiFull_fznerx.png"
+  "profilePicture": "../Images/profilePicture/Gouki.webp",
+  "fullImage": "../Images/fullProfile/GoukiFull.webp"
 }, {
   "id": 190,
   "name": "P300",
   "displayName": "Guile",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003660/Guile_je0cmy.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003689/GuileFull_bg3lqv.png"
+  "profilePicture": "../Images/profilePicture/Guile.webp",
+  "fullImage": "../Images/fullProfile/GuileFull.webp"
 }, {
   "id": 68,
   "name": "P029",
   "displayName": "Guy",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003660/Guy_jan3y4.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003689/GuyFull_ezhlht.png"
-  
+  "profilePicture": "../Images/profilePicture/Guy.webp",
+  "fullImage": "../Images/fullProfile/GuyFull.webp"
 }, {
   "id": 82,
   "name": "P057",
   "displayName": "Hugo",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Hugo_ll4vfu.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003690/HugoFull_emxgbb.png"
+  "profilePicture": "../Images/profilePicture/Hugo.webp",
+  "fullImage": "../Images/fullProfile/HugoFull.webp"
 }, {
   "id": 156,
   "name": "P001",
   "displayName": "Ibuki",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Ibuki_vnmhjb.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003690/IbukiFull_h9t9mu.png"
+  "profilePicture": "../Images/profilePicture/Ibuki.webp",
+  "fullImage": "../Images/fullProfile/IbukiFull.webp"
 }, {
   "id": 159,
   "name": "P078",
   "displayName": "Juri",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Juri_a7mert.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003690/JuriFull_uodmnh.png"
+  "profilePicture": "../Images/profilePicture/Juri.webp",
+  "fullImage": "../Images/fullProfile/JuriFull.webp"
 }, {
   "id": 201,
   "name": "P056",
   "displayName": "Ken",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Ken_ujex8s.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778006747/KenFull2_qzdczy.png"
+  "profilePicture": "../Images/profilePicture/Ken.webp",
+  "fullImage": "../Images/fullProfile/KenFull.webp"
 }, {
   "id": 124,
   "name": "P144",
   "displayName": "Makoto",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Makoto_puxesp.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003691/MakotoFull_dmn2gl.png"
+  "profilePicture": "../Images/profilePicture/Makoto.webp",
+  "fullImage": "../Images/fullProfile/MakotoFull.webp"
 }, {
   "id": 149,
   "name": "P107",
   "displayName": "M. Bison",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003662/Mbison_nqplg7.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003691/MBisonFull_v9rufl.png"
+  "profilePicture": "../Images/profilePicture/MBison.webp",
+  "fullImage": "../Images/fullProfile/MBisonFull.webp"
 }, {
   "id": 235,
   "name": "P043",
   "displayName": "Menat",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003663/Menat_wtxzwi.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003692/MenatFull_cduklp.png"
+  "profilePicture": "../Images/profilePicture/Menat.webp",
+  "fullImage": "../Images/fullProfile/MenatFull.webp"
 }, {
   "id": 170,
   "name": "P124",
   "displayName": "Oro",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003662/Oro_nrh0ca.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003693/OroFull_sqjcc9.png"
+  "profilePicture": "../Images/profilePicture/Oro.webp",
+  "fullImage": "../Images/fullProfile/OroFull.webp"
 }, {
   "id": 11,
   "name": "P258",
   "displayName": "Poison",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003663/Poison_xszzvc.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003692/PoisonFull_mskwch.png"
+  "profilePicture": "../Images/profilePicture/Poison.webp",
+  "fullImage": "../Images/fullProfile/PoisonFull.webp"
 }, {
   "id": 19,
   "name": "P274",
   "displayName": "Remy",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003662/Remy_zi41d2.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003693/RemyFull_w4hzrv.png"
+  "profilePicture": "../Images/profilePicture/Remy.webp",
+  "fullImage": "../Images/fullProfile/RemyFull.webp"
 }, {
   "id": 290,
   "name": "P237",
   "displayName": "Rose",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003663/Rose_qydb9k.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003693/RoseFull_n5abdp.png"
+  "profilePicture": "../Images/profilePicture/Rose.webp",
+  "fullImage": "../Images/fullProfile/RoseFull.webp"
 }, {
   "id": 181,
   "name": "P201",
   "displayName": "Ryu",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003663/Ryu_pgoqdd.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778006656/RyuFull2_kkkmpn.png"
+  "profilePicture": "../Images/profilePicture/Ryu.webp",
+  "fullImage": "../Images/fullProfile/RyuFull.webp"
 }, {
   "id": 12,
   "name": "P170",
   "displayName": "Sagat",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003664/Sagat_oevwaz.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003695/SegatFull_w6ngzr.png"
+  "profilePicture": "../Images/profilePicture/Sagat.webp",
+  "fullImage": "../Images/fullProfile/SegatFull.webp"
 }, {
   "id": 195,
   "name": "P285",
   "displayName": "Sakura",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003664/Sakura_jjcziy.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003693/SakuraFull_vhnwdn.png"
+  "profilePicture": "../Images/profilePicture/Sakura.webp",
+  "fullImage": "../Images/fullProfile/SakuraFull.webp"
 }, {
   "id": 182,
   "name": "P079",
   "displayName": "Sean",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003665/Sean_lqkshi.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003694/SeanFull_kduz2l.png"
+  "profilePicture": "../Images/profilePicture/Sean.webp",
+  "fullImage": "../Images/fullProfile/SeanFull.webp"
 }, {
   "id": 6,
   "name": "P123",
   "displayName": "Thawk",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003664/Thawk_rn9jpe.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003695/THawkFull_tga6g4.png"
+  "profilePicture": "../Images/profilePicture/Thawk.webp",
+  "fullImage": "../Images/fullProfile/THawkFull.webp"
 }, {
   "id": 239,
   "name": "P189",
   "displayName": "Urien",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003665/Urien_stpy94.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003695/UrienFull_i8zp6d.png"
+  "profilePicture": "../Images/profilePicture/Urien.webp",
+  "fullImage": "../Images/fullProfile/UrienFull.webp"
 }, {
   "id": 125,
   "name": "P010",
   "displayName": "Vega",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003665/Vega_kuh2qt.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003695/VegaFull_lpsua2.png"
+  "profilePicture": "../Images/profilePicture/Vega.webp",
+  "fullImage": "../Images/fullProfile/VegaFull.webp"
 }, {
   "id": 140,
   "name": "P213",
   "displayName": "Zangief",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003665/Zangief_idwc9m.png",
-    "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003695/Zangief_l0znlt.png"
+  "profilePicture": "../Images/profilePicture/Zangief.webp",
+  "fullImage": "../Images/fullProfile/Zangief.webp"
 }, {
   "id": 81,
   "name": "P095",
   "displayName": "Karin",
-  "profilePicture": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003661/Karin_j5se1l.png",
-  "fullImage": "https://res.cloudinary.com/datj2chaw/image/upload/v1778003691/KarinFull_jvuppu.png"
+  "profilePicture": "../Images/profilePicture/Karin.webp",
+  "fullImage": "../Images/fullProfile/KarinFull.webp"
 }, {
   "id": 160,
   "name": "P047",
