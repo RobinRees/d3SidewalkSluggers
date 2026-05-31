@@ -169,6 +169,7 @@ function topFiveOATGraph(patchId) {
             .enter()
             .append("path")
             .attr("stroke", colorArray[i])
+            .attr("stroke-width", 3)
             .attr("fill", "none")
             .attr("d", dMakerFunction)
     }
