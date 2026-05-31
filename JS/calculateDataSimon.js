@@ -51,12 +51,20 @@ function findTopFiveOAT(participants) {
     return sortByTotalScore(participants).slice(0, 5)
 };
 
-function createDatasetForCoords(placement) {
+function createDatasetForCoords(placement, patchId) {
     let dataset = [];
 
-    for (i = 0; i <= 9; i++) {
-        dataset.push({ "year": i, "score": `${findTopFiveOAT(participants)[placement].totalScorePerSeason[`year${i}`]}` });
+    if (patchId === "all") {
+        for (i = 0; i <= 9; i++) {
+            dataset.push({ "year": i, "score": `${findTopFiveOAT(participants)[placement].totalScorePerSeason[`year${i}`]}` });
+        }
+        return dataset;
     }
+
+    for (i = 0; i <= 9; i++) {
+            dataset.push({ "year": i, "score": `${findTopFiveByPatch(participants, patchId)[placement].totalScorePerSeason[`year${i}`]}` });
+        }
+
     return dataset;
 }
 
@@ -86,8 +94,8 @@ function findHighestScoreInASeason() {
 
     console.log(seasonWithTopScore);
     console.log(topScoreInASeason);
-    
-    
+
+
 
     return {
         player: topPlayerPerSeasons.filter(player => {

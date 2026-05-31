@@ -1,11 +1,3 @@
-
-const selectedPlayerName = document.getElementById("selectedPlayerName");
-const favoriteLocation = document.getElementById("selectedPlayerLocation");
-const favoritePlayerDicipline = document.getElementById("selectedPlayerDiscipline");
-const favoritePatch = document.getElementById("selectedPlayerSeason");
-const avrageScore = document.getElementById("selectedPlayerAverage");
-const playedMatches = document.getElementById("selectedPlayerMatches");
-
 const scoreboardRowContainer = document.querySelector("#leaderboardRows")
 const patchSelector = document.querySelector("#seasonSelect");
 const allTimeOption = document.createElement("option");
@@ -26,6 +18,7 @@ patches.forEach(patch => {
 
 patchSelector.addEventListener("change", (e) => {
     updateScoreboard(e.target.value);
+    topFiveOATGraph(e.target.value);
 });
 
 function updateScoreboard(patchId) {
@@ -114,8 +107,9 @@ updateScoreboard("all");
 
 
 
-(function topFiveOATGraph() {
+function topFiveOATGraph(patchId) {
     const graphContainer = document.querySelector("#graphContainer");
+    graphContainer.innerHTML = `<div id="charContainer"></div>`;
     const colorArray = ["#1BFF11", "#EB3410", "#2E78F0", "#F02ED9", "#F0B32E"]
 
     const hSvg = 200, wSvg = 700;
@@ -124,6 +118,7 @@ updateScoreboard("all");
     const xScale = d3.scaleLinear([0, 9], [wPadding, wSvg - wPadding]);
     const yScale = d3.scaleLinear([140000, 200000], [hSvg - hPadding, hPadding]);
     const dMakerFunction = d3.line();
+    dMakerFunction.defined(d => Number(d.score) !== 0)
     dMakerFunction.x(d => xScale(d.year));
     dMakerFunction.y(d => yScale(d.score));
 
@@ -148,7 +143,8 @@ updateScoreboard("all");
     const yAxis = d3.axisLeft(yScale)
         .tickValues([150000, 160000, 170000, 180000, 190000, 200000])
         .tickFormat(d3.format(","));
-    svg.append("g")
+    
+        svg.append("g")
         .call(yAxis)
         .attr("transform", `translate(${wPadding}, 0)`)
         .style("color", "white")
@@ -165,7 +161,7 @@ updateScoreboard("all");
         .attr("fill", "none");
 
     for (let i = 0; i <= 4; i++) {
-        let lineDataset = [createDatasetForCoords(i)];
+        let lineDataset = [createDatasetForCoords(i, patchId)];
 
         svg.append("g")
             .selectAll("rect")
@@ -177,28 +173,42 @@ updateScoreboard("all");
             .attr("d", dMakerFunction)
     }
 
-    
+
     const charContainer = document.querySelector("#charContainer");
 
-    for (i = 0; i <= 4; i++) {
+    for (let i = 0; i <= 4; i++) {
         const charDiv = document.createElement("div");
         charDiv.classList.add("charDiv");
         charDiv.style.display = "flex";
         charDiv.style.gap = "10px"
         charContainer.append(charDiv);
 
-        const charPfp = document.createElement("img");
-        charPfp.src = findTopFiveOAT(participants)[i].profilePicture;
-        charDiv.append(charPfp);
+        if (patchId === "all") {
+            const charPfp = document.createElement("img");
+            charPfp.src = findTopFiveOAT(participants)[i].profilePicture;
+            charDiv.append(charPfp);
 
-        const charNameP = document.createElement("p");
-        charNameP.textContent = `${findTopFiveOAT(participants)[i].displayName}`;
-        charNameP.style.color = colorArray[i];
-        charNameP.style.fontSize = "16rm";
-        charDiv.append(charNameP);
+            const charNameP = document.createElement("p");
+            charNameP.textContent = `${findTopFiveOAT(participants)[i].displayName}`;
+            charNameP.style.color = colorArray[i];
+            charDiv.append(charNameP);
+        } else {
+            const charPfp = document.createElement("img");
+            charPfp.src = findTopFiveByPatch(participants, patchId)[i].profilePicture;
+            charDiv.append(charPfp);
+
+            const charNameP = document.createElement("p");
+            charNameP.textContent = `${findTopFiveByPatch(participants, patchId)[i].displayName}`;
+            charNameP.style.color = colorArray[i];
+            charDiv.append(charNameP);
+        }
+
+
 
     }
-}());
+};
+topFiveOATGraph("all");
+
 
 (function displayTopStatsPanel() {
     const topStatsPanel = document.querySelector("#topStatsPanel");
